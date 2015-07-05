@@ -12,13 +12,22 @@ Package.onUse(function(api) {
   api.use('violet:core');
 
   api.addFiles([
-    'both/routes.js'
+    'both/routes.js',
+    'both/collections/posts.js'
   ], ['client', 'server']);
 
   api.addFiles([
     'client/templates/posts.html',
-    'client/templates/posts.js'
+    'client/templates/posts.js',
+    'client/templates/post.html',
+    'client/templates/post.js'
   ], 'client');
+
+  api.addFiles([
+    'server/publications.js'
+  ], 'server');
+
+  api.export('Posts');
 });
 
 Package.onTest(function(api) {

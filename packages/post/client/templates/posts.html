@@ -1,3 +1,7 @@
 <template name="posts">
   <h2>Posts</h2>
+
+  {{#each posts}}
+    <h3><a href="{{pathFor route='post'}}">{{title}}</a></h3>
+  {{/each}}
 </template>

@@ -10,8 +10,9 @@ Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
 
   var packages = [
+    'meteor-platform@1.2.2',
     'iron:router@1.0.9',
-    'meteor-platform'
+    'aldeed:collection2@2.3.3'
   ];
 
   var clientPackages = [
