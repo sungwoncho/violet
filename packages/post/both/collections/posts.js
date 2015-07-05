@@ -1,10 +1,10 @@
 Posts = new Mongo.Collection('posts');
 
 var PostSchema = new SimpleSchema({
-  title: {
+  body: {
     type: String
   },
-  content: {
+  topicId: {
     type: String
   }
 });
