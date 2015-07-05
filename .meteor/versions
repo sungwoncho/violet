@@ -13,7 +13,6 @@ blaze@2.1.2
 blaze-tools@1.0.3
 boilerplate-generator@1.0.3
 callback-hook@1.0.3
-category@0.0.1
 check@1.0.5
 coffeescript@1.0.6
 ddp@1.1.0
@@ -81,6 +80,7 @@ velocity:core@0.6.1
 velocity:html-reporter@0.5.3
 velocity:meteor-internals@1.1.0_7
 velocity:shim@0.1.0
+violet:category@0.0.1
 violet:core@0.0.1
 violet:dependency@0.0.1
 violet:post@0.0.1
