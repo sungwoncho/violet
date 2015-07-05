@@ -20,7 +20,8 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'client/templates/shared/layout.html',
-    'client/templates/home.html'
+    'client/templates/home.html',
+    'client/templates/home.js'
   ], 'client');
 });
 

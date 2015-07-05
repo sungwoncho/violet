@@ -1,9 +1,3 @@
-Router.route('/topics', {
-  waitOn: function () {
-    return Meteor.subscribe('topics');
-  }
-});
-
 Router.route('/topic/:_id', {
   name: 'topic',
   template: 'topic',

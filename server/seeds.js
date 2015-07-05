@@ -1,8 +1,13 @@
 Meteor.startup(function () {
-  if (Posts.find().count() === 0) {
-    for (var i = 0; i < 100; i++) {
+  if (Categories.find().count() === 0) {
+    for (var i = 0; i < 10; i++) {
+      var categoryId = Categories.insert({
+        name: Fake.word()
+      });
+
       var topicId = Topics.insert({
-        title: Fake.sentence()
+        title: Fake.sentence(),
+        categoryId: categoryId
       });
 
       Posts.insert({

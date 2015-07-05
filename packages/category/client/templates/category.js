@@ -1,4 +1,4 @@
-Template.topics.helpers({
+Template.category.helpers({
   topics: function () {
     return Topics.find();
   }

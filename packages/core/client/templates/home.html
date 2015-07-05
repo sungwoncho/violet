@@ -1,3 +1,10 @@
 <template name="home">
-  yo
+  <h2>Recent topics</h2>
+  <ul>
+    {{#each recentTopics}}
+      <li>
+        <a href="{{pathFor 'topic' data=this}}">{{this.title}}</a>
+      </li>
+    {{/each}}
+  </ul>
 </template>

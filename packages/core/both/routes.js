@@ -4,5 +4,8 @@ Router.configure({
 
 Router.route('/', {
 	name: 'home',
-  template: 'home'
-})
+  template: 'home',
+  waitOn: function () {
+    return Meteor.subscribe('recent-topics');
+  }
+});

@@ -1,7 +1,7 @@
 Package.describe({
-  name: 'violet:topic',
+  name: 'category',
   version: '0.0.1',
-  summary: 'everything related to topic',
+  summary: '',
   git: '',
   documentation: 'README.md'
 });
@@ -12,20 +12,20 @@ Package.onUse(function(api) {
   api.use('violet:core');
 
   api.addFiles([
-    'both/collections/topics.js',
+    'both/collections/categories.js',
     'both/routes.js'
   ]);
 
   api.addFiles([
-    'client/templates/topic.html',
-    'client/templates/topic.js'
+    'client/templates/category.html',
+    'client/templates/category.js'
   ], 'client');
 
   api.addFiles([
     'server/publications.js'
   ], 'server');
 
-  api.export('Topics');
+  api.export('Categories');
 });
 
 Package.onTest(function(api) {
