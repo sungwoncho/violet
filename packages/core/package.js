@@ -8,7 +8,29 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
-  api.addFiles('core.js');
+
+  var packages = [
+    'iron:router@1.0.9',
+    'meteor-platform'
+  ];
+
+  var clientPackages = [
+    'templating'
+  ];
+
+  api.use(packages);
+  api.use(clientPackages, 'client');
+  api.imply(packages);
+  api.imply(clientPackages);
+
+  api.addFiles([
+    'both/routes.js'
+  ], ['client', 'server']);
+
+  api.addFiles([
+    'client/templates/shared/layout.html',
+    'client/templates/home.html'
+  ], 'client');
 });
 
 Package.onTest(function(api) {
