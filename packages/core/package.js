@@ -15,14 +15,8 @@ Package.onUse(function(api) {
     'aldeed:collection2@2.3.3'
   ];
 
-  var clientPackages = [
-    'templating'
-  ];
-
   api.use(packages);
-  api.use(clientPackages, 'client');
   api.imply(packages);
-  api.imply(clientPackages);
 
   api.addFiles([
     'both/routes.js'
