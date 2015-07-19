@@ -1,9 +1,9 @@
 Template.newTopic.onRendered(function () {
-  $('#summernote').summernote();
+  this.$('#summernote').summernote();
 });
 
 Template.newTopic.onDestroyed(function () {
-  $('#summernote').destroy();
+  this.$('#summernote').destroy();
 });
 
 Template.newTopic.events({
