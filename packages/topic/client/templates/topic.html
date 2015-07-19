@@ -1,6 +1,12 @@
 <template name="topic">
   <h1>{{title}}</h1>
 
+  {{body}}
+
+  <div>
+    By {{author}}
+  </div>
+
   {{#each posts}}
     {{>post}}
   {{/each}}

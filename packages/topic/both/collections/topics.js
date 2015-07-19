@@ -6,29 +6,33 @@ TopicSchema = new SimpleSchema({
   },
   categoryId: {
     type: String
+  },
+  body: {
+    type: String
+  },
+  author: {
+    type: String
+  },
+  authorId: {
+    type: String
   }
 });
 
 Topics.attachSchema(TopicSchema);
 
 Meteor.methods({
-  submitTopic: function (topicTitle, postBody) {
-    var topic = {
-      title: topicTitle,
-      categoryId: 'aaaa'
-    };
+  submitTopic: function (topic) {
+    _.extend(topic, {
+      author: Meteor.user().username,
+      authorId: Meteor.userId()
+    });
 
     var topicId = Topics.insert(topic);
-
-    var initialPost = {
-      body: postBody,
-      topicId: topicId
-    };
-
-    Meteor.call('submitPost', initialPost);
 
     if (Meteor.isClient) {
       Router.go('topic', {_id: topicId});
     }
+
+    return topicId;
   }
 });

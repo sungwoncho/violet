@@ -1,6 +1,11 @@
 Router.route('/t/new', {
   name: 'newTopic',
-  template: 'newTopic'
+  template: 'newTopic',
+  waitOn: function () {
+    return [
+      Meteor.subscribe('categories')
+    ];
+  }
 });
 
 Router.route('/t/:_id', {

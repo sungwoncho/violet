@@ -8,9 +8,22 @@ Template.newTopic.onDestroyed(function () {
 
 Template.newTopic.events({
   'click .submit': function (e, tpl) {
-    var topicTitle = tpl.$('#topic-title').val();
-    var postBody = $('.note-editable').html();
+    var topicCategoryId = tpl.$('#topic-category').val(),
+        topicTitle = tpl.$('#topic-title').val(),
+        topicBody = $('.note-editable').html();
 
-    Meteor.call('submitTopic', topicTitle, postBody);
+    var topic = {
+      title: topicTitle,
+      categoryId: topicCategoryId,
+      body: topicBody
+    };
+
+    Meteor.call('submitTopic', topic);
+  }
+});
+
+Template.newTopic.helpers({
+  categories: function () {
+    return Categories.find();
   }
 });

@@ -1,6 +1,11 @@
 <template name="newTopic">
   <h1>New Topic</h1>
 
+  <select id="topic-category">
+    {{#each categories}}
+      <option value="{{_id}}">{{name}}</option>
+    {{/each}}
+  </select>
   <input type="text" id="topic-title">
   <div id="summernote"></div>
   <button class="submit">Submit</button>
