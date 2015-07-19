@@ -10,13 +10,22 @@ Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
 
   var packages = [
-    'accounts-ui',
+    'joshowens:accounts-entry@1.0.3',
     'accounts-password',
     'violet:dependency'
   ];
 
   api.use(packages);
   api.imply(packages);
+
+  api.addFiles([
+    'both/routes.js',
+    'both/collections/users.js'
+  ], ['client', 'server']);
+
+  api.addFiles([
+    'client/config.js'
+  ], 'client');
 });
 
 Package.onTest(function(api) {
