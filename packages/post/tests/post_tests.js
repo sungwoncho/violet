@@ -4,7 +4,9 @@ MochaWeb.testOnly(function(){
     it("creates a post", function(){
       var _userId = Meteor.userId,
           _user = Meteor.user;
-      Meteor.userId = 1;
+      Meteor.userId = function () {
+        return 1;
+      };
       Meteor.user = function () {
         return {username: 'Jon'};
       };

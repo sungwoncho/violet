@@ -18,7 +18,9 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'client/templates/topic.html',
-    'client/templates/topic.js'
+    'client/templates/topic.js',
+    'client/templates/newTopic.html',
+    'client/templates/newTopic.js',
   ], 'client');
 
   api.addFiles([

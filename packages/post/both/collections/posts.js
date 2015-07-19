@@ -20,7 +20,7 @@ Posts.attachSchema(PostsSchema);
 Meteor.methods({
   submitPost: function (post) {
     post.author = Meteor.user().username;
-    post.authorId = Meteor.userId;
+    post.authorId = Meteor.userId();
 
     Posts.insert(post);
   }

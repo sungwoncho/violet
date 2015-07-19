@@ -1,4 +1,9 @@
-Router.route('/topic/:_id', {
+Router.route('/t/new', {
+  name: 'newTopic',
+  template: 'newTopic'
+});
+
+Router.route('/t/:_id', {
   name: 'topic',
   template: 'topic',
   data: function () {
