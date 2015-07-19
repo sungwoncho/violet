@@ -12,7 +12,8 @@ Package.onUse(function(api) {
   var packages = [
     'meteor-platform',
     'iron:router@1.0.9',
-    'aldeed:collection2@2.3.3'
+    'aldeed:collection2@2.3.3',
+    'practicalmeteor:sinon@1.14.1' // testing
   ];
 
   api.use(packages);

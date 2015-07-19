@@ -1,5 +1,15 @@
 Meteor.startup(function () {
-  if (Categories.find().count() === 0) {
+  if (!process.env.IS_MIRROR && Categories.find().count() === 0) {
+    var jonId = Accounts.createUser({
+      username: 'jon',
+      email: 'jon@example.com',
+      password: 'testPassword',
+      profile: {
+        username: 'jon'
+      }
+    });
+    var jon = Meteor.users.findOne(jonId);
+
     for (var i = 0; i < 10; i++) {
       var categoryId = Categories.insert({
         name: Fake.word()
@@ -12,7 +22,9 @@ Meteor.startup(function () {
 
       Posts.insert({
         body: Fake.paragraph(),
-        topicId: topicId
+        topicId: topicId,
+        author: jon.username,
+        authorId: jon._id
       });
     }
   }
