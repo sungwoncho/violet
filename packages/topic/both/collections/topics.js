@@ -28,6 +28,17 @@ Topics.attachSchema(TopicSchema);
 
 Meteor.methods({
   submitTopic: function (topic) {
+    var nonEmptyString = Match.Where(function (arg) {
+      check(arg, String);
+      return arg.length > 0;
+    });
+
+    check(topic, {
+      title: nonEmptyString,
+      body: nonEmptyString,
+      categoryId: nonEmptyString
+    });
+
     _.extend(topic, {
       author: Meteor.user().username,
       authorId: Meteor.userId()

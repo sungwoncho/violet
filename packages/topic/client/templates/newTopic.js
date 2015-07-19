@@ -18,6 +18,11 @@ Template.newTopic.events({
       body: topicBody
     };
 
+    if (topicTitle === '')
+      tpl.$('.error').text('Title is required.');
+    if (topicBody === '')
+      tpl.$('.error').text('Body is required.');
+
     Meteor.call('submitTopic', topic);
   }
 });
