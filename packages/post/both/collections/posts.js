@@ -12,6 +12,12 @@ var PostsSchema = new SimpleSchema({
   },
   authorId: {
     type: String
+  },
+  createdAt: {
+    type: Date,
+    autoValue: function () {
+      return new Date();
+    }
   }
 });
 
