@@ -1,6 +1,6 @@
 Posts = new Mongo.Collection('posts');
 
-var PostsSchema = new SimpleSchema({
+Schema.posts = new SimpleSchema({
   body: {
     type: String
   },
@@ -21,7 +21,7 @@ var PostsSchema = new SimpleSchema({
   }
 });
 
-Posts.attachSchema(PostsSchema);
+Posts.attachSchema(Schema.posts);
 
 Meteor.methods({
   submitPost: function (post) {

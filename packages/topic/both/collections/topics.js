@@ -1,6 +1,6 @@
 Topics = new Mongo.Collection('topics');
 
-TopicSchema = new SimpleSchema({
+Schema.topics = new SimpleSchema({
   title: {
     type: String
   },
@@ -29,7 +29,7 @@ TopicSchema = new SimpleSchema({
   }
 });
 
-Topics.attachSchema(TopicSchema);
+Topics.attachSchema(Schema.topics);
 
 Topics.simpleSchema().messages({
   notUnique: 'A duplicate slug exists.'

@@ -1,6 +1,6 @@
 Categories = new Mongo.Collection('categories');
 
-CategorySchema = new SimpleSchema({
+Schema.categories = new SimpleSchema({
   name: {
     type: String
   },
@@ -17,7 +17,7 @@ CategorySchema = new SimpleSchema({
   }
 });
 
-Categories.attachSchema(CategorySchema);
+Categories.attachSchema(Schema.categories);
 
 Categories.simpleSchema().messages({
   notUnique: 'A duplicate slug exists.'

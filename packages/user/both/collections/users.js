@@ -1,4 +1,4 @@
-var UserSchema = new SimpleSchema({
+Schema.users = new SimpleSchema({
   profile: {
     type: Object,
     blackbox: true
@@ -19,4 +19,4 @@ var UserSchema = new SimpleSchema({
   }
 });
 
-Meteor.users.attachSchema(UserSchema);
+Meteor.users.attachSchema(Schema.users);
