@@ -20,8 +20,6 @@ Package.onUse(function(api) {
   api.imply(packages);
 
   api.addFiles([
-    'both/namespace.js',
-    'both/utils.js',
     'both/routes.js'
   ], ['client', 'server']);
 
@@ -31,8 +29,6 @@ Package.onUse(function(api) {
     'client/templates/home.html',
     'client/templates/home.js'
   ], 'client');
-
-  api.export('Violet');
 });
 
 Package.onTest(function(api) {

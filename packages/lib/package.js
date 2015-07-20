@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'violet:dependency',
+  name: 'violet:lib',
   version: '0.0.1',
   summary: 'external dependencies',
   git: '',
@@ -21,6 +21,16 @@ Package.onUse(function(api) {
   api.imply(packages);
 
   api.addFiles([
+    'both/namespace.js',
+    'both/utils.js',
+    'both/collections/settings.js'
+  ], ['client', 'server']);
+
+  api.addFiles([
     'client/stylesheets/summernote-bs3.css'
   ], 'client');
+
+  api.export('Violet');
+  api.export('Schema');
+  api.export('Settings');
 });

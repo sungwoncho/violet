@@ -88,7 +88,7 @@ velocity:meteor-internals@1.1.0_7
 velocity:shim@0.1.0
 violet:category@0.0.1
 violet:core@0.0.1
-violet:dependency@0.0.1
+violet:lib@0.0.1
 violet:post@0.0.1
 violet:topic@0.0.1
 violet:user@0.0.1

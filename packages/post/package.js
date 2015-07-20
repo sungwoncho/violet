@@ -9,7 +9,7 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
 
-  api.use('violet:dependency');
+  api.use('violet:lib');
 
   api.addFiles([
     'both/routes.js',

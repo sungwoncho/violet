@@ -1,11 +1,19 @@
 Meteor.startup(function () {
-  if (!process.env.IS_MIRROR && Categories.find().count() === 0) {
-    for (var i = 0; i < 10; i++) {
-      var category = {
-        name: Fake.word()
-      };
-      var categoryId = Meteor.call('createCategory', category);
+  if (Settings.find().count() === 0 && Categories.find().count() === 0) {
+
+    // If not in test
+    if (!process.env.IS_MIRROR) {
+      for (var i = 0; i < 10; i++) {
+        var category = {
+          name: Fake.word()
+        };
+        var categoryId = Meteor.call('createCategory', category);
+      }
     }
+
+    Settings.insert({
+      appName: 'Violet'
+    });
 
 
     // var jonId = Accounts.createUser({

@@ -12,7 +12,7 @@ Package.onUse(function(api) {
   var packages = [
     'joshowens:accounts-entry@1.0.3',
     'accounts-password',
-    'violet:dependency'
+    'violet:lib'
   ];
 
   api.use(packages);
