@@ -1,7 +1,7 @@
 Package.describe({
   name: 'violet:lib',
   version: '0.0.1',
-  summary: 'external dependencies',
+  summary: 'Contains the common packages and files that other packages depend on',
   git: '',
   documentation: 'README.md'
 });
