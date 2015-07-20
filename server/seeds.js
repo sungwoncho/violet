@@ -11,6 +11,25 @@ Meteor.startup(function () {
       }
     }
 
+    var jonId = Accounts.createUser({
+      username: 'jon',
+      email: 'test@test.com',
+      password: 'pass1234',
+      profile: {
+        username: 'jon',
+      }
+    });
+    Meteor.users.update(jonId, {$set: {isAdmin: true}});
+
+    Accounts.createUser({
+      username: 'nora',
+      email: 'test2@test.com',
+      password: 'pass1234',
+      profile: {
+        username: 'nora'
+      }
+    });
+
     Settings.insert({
       appName: 'Violet'
     });

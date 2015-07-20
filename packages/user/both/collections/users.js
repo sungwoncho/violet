@@ -16,6 +16,10 @@ Schema.users = new SimpleSchema({
   },
   createdAt: {
     type: Date
+  },
+  isAdmin: {
+    type: Boolean,
+    defaultValue: false
   }
 });
 

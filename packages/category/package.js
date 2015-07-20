@@ -28,7 +28,8 @@ Package.onUse(function(api) {
   ], 'client');
 
   api.addFiles([
-    'server/publications.js'
+    'server/publications.js',
+    'server/methods.js'
   ], 'server');
 
   api.export('Categories');

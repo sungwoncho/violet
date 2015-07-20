@@ -24,8 +24,13 @@ Package.onUse(function(api) {
   ], ['client', 'server']);
 
   api.addFiles([
-    'client/config.js'
+    'client/config.js',
+    'client/subscriptions.js'
   ], 'client');
+
+  api.addFiles([
+    'server/publications.js'
+  ], 'server');
 });
 
 Package.onTest(function(api) {

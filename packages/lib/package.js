@@ -30,6 +30,10 @@ Package.onUse(function(api) {
     'client/stylesheets/summernote-bs3.css'
   ], 'client');
 
+  api.addFiles([
+    'server/publications.js'
+  ], 'server');
+
   api.export('Violet');
   api.export('Schema');
   api.export('Settings');
