@@ -24,7 +24,6 @@ Router.route('/admin/settings', {
   name: 'settings',
   template: 'settings',
   waitOn: function () {
-    if (Meteor.user() && Meteor.user().isAdmin)
-      return Meteor.subscribe('settings');
+    return Meteor.subscribe('settings');
   }
 });

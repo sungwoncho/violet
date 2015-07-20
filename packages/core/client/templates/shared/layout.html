@@ -1,6 +1,6 @@
 <template name="layout">
 	<h1>
-		<a href="{{pathFor route='home'}}">Violet</a>
+		<a href="{{pathFor route='home'}}">{{getSetting 'appName'}}</a>
 	</h1>
 
   {{> yield}}

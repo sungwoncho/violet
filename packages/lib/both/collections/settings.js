@@ -1,7 +1,10 @@
 Settings = new Mongo.Collection('settings');
 
 Schema.settings = new SimpleSchema({
-  appName: {
+  public: {
+    type: [Object]
+  },
+  'public.appName': {
     type: String
   },
   createdAt: {

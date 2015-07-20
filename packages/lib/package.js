@@ -28,7 +28,8 @@ Package.onUse(function(api) {
   ], ['client', 'server']);
 
   api.addFiles([
-    'client/stylesheets/summernote-bs3.css'
+    'client/stylesheets/summernote-bs3.css',
+    'client/helpers.js'
   ], 'client');
 
   api.addFiles([

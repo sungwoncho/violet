@@ -31,7 +31,9 @@ Meteor.startup(function () {
     });
 
     Settings.insert({
-      appName: 'Violet'
+      public: {
+        appName: 'Violet'
+      }
     });
 
 

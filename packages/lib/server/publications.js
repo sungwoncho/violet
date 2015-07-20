@@ -1,11 +1,10 @@
 Meteor.publish('settings', function () {
-  if (!this.userId) return this.ready();
-
   var user = Meteor.users.findOne(this.userId);
 
-  if (user.isAdmin) {
+  // Not publishing private fields to non-admin users
+  if (user && user.isAdmin) {
     return Settings.find();
   } else {
-    return this.ready();
+    return Settings.find({}, {fields: {private: 0}});
   }
 });

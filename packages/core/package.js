@@ -24,6 +24,7 @@ Package.onUse(function(api) {
   ], ['client', 'server']);
 
   api.addFiles([
+    'client/subscriptions.js',
     'client/templates/shared/layout.html',
     'client/templates/shared/head.html',
     'client/templates/home.html',
