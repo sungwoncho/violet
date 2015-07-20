@@ -13,7 +13,7 @@ Npm.depends({
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
 
-  api.use('violet:core');
+  api.use('violet:dependency');
 
   api.addFiles([
     'both/collections/categories.js',

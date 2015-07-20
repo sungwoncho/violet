@@ -9,7 +9,3 @@ velocity:html-reporter
 anti:fake
 
 violet:core
-violet:post
-violet:topic
-violet:user
-violet:category

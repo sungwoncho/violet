@@ -9,10 +9,15 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
 
-  api.use('violet:dependency');
-  api.imply('violet:dependency');
+  var packages = [
+    'violet:category',
+    'violet:topic',
+    'violet:post',
+    'violet:user'
+  ];
 
-  api.use('violet:user');
+  api.use(packages);
+  api.imply(packages);
 
   api.addFiles([
     'both/namespace.js',
@@ -26,6 +31,8 @@ Package.onUse(function(api) {
     'client/templates/home.html',
     'client/templates/home.js'
   ], 'client');
+
+  api.export('Violet');
 });
 
 Package.onTest(function(api) {
