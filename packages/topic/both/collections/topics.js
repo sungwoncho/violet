@@ -30,3 +30,7 @@ TopicSchema = new SimpleSchema({
 });
 
 Topics.attachSchema(TopicSchema);
+
+Topics.simpleSchema().messages({
+  notUnique: 'A duplicate slug exists.'
+});
