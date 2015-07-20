@@ -1,4 +1,6 @@
-Meteor.publish('topics', function (categoryId) {
+Meteor.publish('topics', function (categorySlug) {
+  var categoryId = Categories.findOne({slug: categorySlug})._id;
+
   return Topics.find({categoryId: categoryId});
 });
 

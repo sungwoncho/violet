@@ -2,6 +2,6 @@ Meteor.publish('categories', function () {
   return Categories.find();
 });
 
-Meteor.publish('category', function (categoryId) {
-  return Categories.find({_id: categoryId});
+Meteor.publish('category', function (categorySlug) {
+  return Categories.find({slug: categorySlug});
 });
