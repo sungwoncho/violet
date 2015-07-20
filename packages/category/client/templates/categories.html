@@ -1,0 +1,11 @@
+<template name="categories">
+  <h1>All categories</h1>
+
+  {{#each categories}}
+    <ul>
+      <li>
+        <a href="{{pathFor route='category.show'}}">{{name}}</a>
+      </li>
+    </ul>
+  {{/each}}
+</template>

@@ -22,7 +22,9 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'client/templates/category.html',
-    'client/templates/category.js'
+    'client/templates/category.js',
+    'client/templates/categories.html',
+    'client/templates/categories.js'
   ], 'client');
 
   api.addFiles([
