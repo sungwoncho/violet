@@ -7,5 +7,5 @@ Meteor.publish('topic', function (topicSlug) {
 });
 
 Meteor.publish('recent-topics', function () {
-  return Topics.find({}, {sort: {date: -1}, limit: 10});
+  return Topics.find({}, {sort: {createdAt: -1}, limit: 10});
 });
