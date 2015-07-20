@@ -13,7 +13,7 @@ Meteor.methods({
 
     var getSlug = function (rawTitle) {
       var slug = Npm.require('slug'),
-          initialSlug = slug(topic.title),
+          initialSlug = slug(topic.title, {lower: true}),
           uniqNum = 1;
 
       // When there is no duplicate slug, return the initialSlug
