@@ -16,6 +16,11 @@ TopicSchema = new SimpleSchema({
   authorId: {
     type: String
   },
+  slug: {
+    type: String,
+    index: true,
+    unique: true
+  },
   createdAt: {
     type: Date,
     autoValue: function () {
@@ -25,31 +30,3 @@ TopicSchema = new SimpleSchema({
 });
 
 Topics.attachSchema(TopicSchema);
-
-Meteor.methods({
-  submitTopic: function (topic) {
-    var nonEmptyString = Match.Where(function (arg) {
-      check(arg, String);
-      return arg.length > 0;
-    });
-
-    check(topic, {
-      title: nonEmptyString,
-      body: nonEmptyString,
-      categoryId: nonEmptyString
-    });
-
-    _.extend(topic, {
-      author: Meteor.user().username,
-      authorId: Meteor.userId()
-    });
-
-    var topicId = Topics.insert(topic);
-
-    if (Meteor.isClient) {
-      Router.go('topic', {_id: topicId});
-    }
-
-    return topicId;
-  }
-});

@@ -15,6 +15,8 @@ Package.onUse(function(api) {
   api.use('violet:user');
 
   api.addFiles([
+    'both/namespace.js',
+    'both/utils.js',
     'both/routes.js'
   ], ['client', 'server']);
 

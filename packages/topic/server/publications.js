@@ -2,8 +2,8 @@ Meteor.publish('topics', function (categoryId) {
   return Topics.find({categoryId: categoryId});
 });
 
-Meteor.publish('topic', function (_id) {
-  return Topics.find({_id: _id});
+Meteor.publish('topic', function (topicSlug) {
+  return Topics.find({slug: topicSlug});
 });
 
 Meteor.publish('recent-topics', function () {

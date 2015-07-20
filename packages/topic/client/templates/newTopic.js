@@ -23,7 +23,9 @@ Template.newTopic.events({
     if (topicBody === '')
       tpl.$('.error').text('Body is required.');
 
-    Meteor.call('submitTopic', topic);
+    Meteor.call('submitTopic', topic, function (err, topicSlug) {
+      Router.go('topic', {slug: topicSlug});
+    });
   }
 });
 
