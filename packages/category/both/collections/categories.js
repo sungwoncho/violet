@@ -15,6 +15,11 @@ Schema.categories = new SimpleSchema({
   position: {
     type: Number
   },
+  topicCount: {
+    type: Number,
+    defaultValue: 0,
+    denyUpdate: true
+  },
   createdAt: {
     type: Date,
     defaultValue: new Date(),
@@ -26,4 +31,12 @@ Categories.attachSchema(Schema.categories);
 
 Categories.simpleSchema().messages({
   notUnique: 'A duplicate slug exists.'
+});
+
+Meteor.methods({
+  incrementTopicCount: function (categoryId) {
+    check(categoryId, String);
+
+    Categories.update(categoryId, {$inc: {topicCount: 1}});
+  }
 });

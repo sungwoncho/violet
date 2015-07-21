@@ -39,6 +39,8 @@ Meteor.methods({
     var topicId = Topics.insert(topic);
     var topicSlug = Topics.findOne(topicId).slug;
 
+    Meteor.call('incrementTopicCount', topic.categoryId);
+
     return topicSlug;
   }
 });
