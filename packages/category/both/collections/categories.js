@@ -38,5 +38,12 @@ Meteor.methods({
     check(categoryId, String);
 
     Categories.update(categoryId, {$inc: {topicCount: 1}});
+  },
+  removeCategory: function (categoryId) {
+    check(categoryId, String);
+
+    Categories.remove(categoryId);
+    //TODO: call removeTopic that removes topic and all its posts
+    Topics.remove({categoryId: categoryId});
   }
 });
