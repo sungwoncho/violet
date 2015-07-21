@@ -32,7 +32,7 @@ Meteor.startup(function () {
 
     Settings.insert({
       public: {
-        appName: 'Violet'
+        appName: 'Violet Development'
       }
     });
 

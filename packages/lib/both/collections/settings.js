@@ -2,7 +2,7 @@ Settings = new Mongo.Collection('settings');
 
 Schema.settings = new SimpleSchema({
   public: {
-    type: [Object]
+    type: Object
   },
   'public.appName': {
     type: String

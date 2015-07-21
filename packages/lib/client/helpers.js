@@ -1,7 +1,7 @@
 Template.registerHelper('getSetting', function (key) {
   var defaultSettings = {
     public: {
-      appName: 'Default app name'
+      appName: 'Violet'
     }
   };
 
