@@ -13,8 +13,7 @@ Package.onUse(function(api) {
     'violet:category',
     'violet:topic',
     'violet:post',
-    'violet:user',
-    'violet:admin'
+    'violet:user'
   ];
 
   api.use(packages);
@@ -30,6 +29,8 @@ Package.onUse(function(api) {
     'client/templates/shared/head.html',
     'client/templates/home.html',
     'client/templates/home.js',
+    'client/templates/admins/settings.html',
+    'client/templates/admins/settings.js',
     'client/templates/errors/404.html'
   ], 'client');
 });
