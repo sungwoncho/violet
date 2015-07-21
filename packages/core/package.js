@@ -29,8 +29,12 @@ Package.onUse(function(api) {
     'client/templates/shared/head.html',
     'client/templates/home.html',
     'client/templates/home.js',
-    'client/templates/admins/settings.html',
-    'client/templates/admins/settings.js',
+    'client/templates/admins/adminSettings.html',
+    'client/templates/admins/adminSettings.js',
+    'client/templates/admins/adminCategories.html',
+    'client/templates/admins/adminCategories.js',
+    'client/templates/admins/adminEditCategory.html',
+    'client/templates/admins/adminEditCategory.js',
     'client/templates/errors/404.html'
   ], 'client');
 });

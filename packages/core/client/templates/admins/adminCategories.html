@@ -1,0 +1,14 @@
+<template name="adminCategories">
+  <h1>Edit Categories</h1>
+
+  <ul>
+    {{#each categories}}
+      <li>
+        {{name}}
+
+        <a href="{{pathFor route='adminEditCategory'}}">Edit</a>
+      </li>
+    {{/each}}
+  </ul>
+
+</template>

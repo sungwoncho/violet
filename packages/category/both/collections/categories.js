@@ -22,3 +22,11 @@ Categories.attachSchema(Schema.categories);
 Categories.simpleSchema().messages({
   notUnique: 'A duplicate slug exists.'
 });
+
+Categories.allow({
+  update: function (userId, doc, fieldNames, modifier) {
+    var user = Meteor.users.findOne(userId);
+    return user && user.isAdmin;
+  },
+  fetch: []
+});
