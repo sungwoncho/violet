@@ -5,7 +5,8 @@ Meteor.startup(function () {
     if (!process.env.IS_MIRROR) {
       for (var i = 0; i < 10; i++) {
         var category = {
-          name: Fake.word()
+          name: Fake.word(),
+          description: Fake.paragraph()
         };
         var categoryId = Meteor.call('createCategory', category);
       }

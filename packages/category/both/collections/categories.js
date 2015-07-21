@@ -9,6 +9,9 @@ Schema.categories = new SimpleSchema({
     index: true,
     unique: true
   },
+  description: {
+    type: String
+  },
   position: {
     type: Number
   },
