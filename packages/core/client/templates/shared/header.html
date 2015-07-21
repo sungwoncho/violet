@@ -1,0 +1,25 @@
+<template name="header">
+  <header class="main-header">
+    <div class="brand">
+      <h1 class="app-name">
+        <a href="{{pathFor route='home'}}">{{getSetting 'appName'}}</a>
+      </h1>
+    </div>
+
+    <div class="header-menu">
+      {{#if currentUser}}
+        <a href="{{pathFor route='entrySignOut'}}" class="btn-sm">
+          <i class="fa fa-sign-out"></i> Sign out
+        </a>
+      {{else}}
+        <a href="{{pathFor route='entrySignUp'}}" class="btn-sm">
+          <i class="fa fa-user-plus"></i> Sign up
+        </a>
+
+        <a href="{{pathFor route='entrySignIn'}}" class="btn-sm">
+          <i class="fa fa-sign-in"></i> Sign in
+        </a>
+      {{/if}}
+    </div>
+  </header>
+</template>

@@ -1,7 +1,7 @@
 <template name="layout">
-	<h1>
-		<a href="{{pathFor route='home'}}">{{getSetting 'appName'}}</a>
-	</h1>
+	{{> header}}
 
-  {{> yield}}
+	<div class="contents">
+		{{> yield}}
+	</div>
 </template>

@@ -1,0 +1,22 @@
+.main-header {
+  padding: 2em;
+  box-shadow: 0 0.5px 2px 1px rgba(0, 0, 0, 0.2);
+  @include clearfix;
+
+  .brand {
+    float: left;
+  }
+
+  .app-name {
+    font-size: 1.5em;
+    margin: 0;
+
+    a {
+      color: $violet;
+    }
+  }
+
+  .header-menu {
+    float: right;
+  }
+}
