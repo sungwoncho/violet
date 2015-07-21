@@ -9,11 +9,13 @@ Schema.categories = new SimpleSchema({
     index: true,
     unique: true
   },
+  position: {
+    type: Number
+  },
   createdAt: {
     type: Date,
-    autoValue: function () {
-      return new Date();
-    }
+    defaultValue: new Date(),
+    denyUpdate: true
   }
 });
 
@@ -21,12 +23,4 @@ Categories.attachSchema(Schema.categories);
 
 Categories.simpleSchema().messages({
   notUnique: 'A duplicate slug exists.'
-});
-
-Categories.allow({
-  update: function (userId, doc, fieldNames, modifier) {
-    var user = Meteor.users.findOne(userId);
-    return user && user.isAdmin;
-  },
-  fetch: []
 });

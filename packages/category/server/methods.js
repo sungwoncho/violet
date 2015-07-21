@@ -1,9 +1,11 @@
 Meteor.methods({
   createCategory: function (category) {
-    var slug = Npm.require('slug');
+    var slug = Npm.require('slug'),
+        maxPosition = Categories.find().count();
 
     _.extend(category, {
-      slug: slug(category.name, {lower: true})
+      slug: slug(category.name, {lower: true}),
+      position: maxPosition + 1
     });
 
     var categoryId = Categories.insert(category);

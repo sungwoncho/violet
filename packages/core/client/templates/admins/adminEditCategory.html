@@ -2,7 +2,16 @@
   <a href="{{pathFor route='adminCategories'}}">Back</a>
 
   <form id='category-form'>
-    <input type="text" name="name" value={{name}}>
+    <label>
+      Name
+      <input type="text" name="name" value={{name}}>
+    </label>
+
+    <label>
+      Position (1, 2, 3, ...)
+      <input type="number" name="position" value={{position}}>
+    </label>
+
     <input type="submit" value="Save">
   </form>
 </template>
