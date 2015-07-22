@@ -17,8 +17,7 @@ Schema.categories = new SimpleSchema({
   },
   topicCount: {
     type: Number,
-    defaultValue: 0,
-    denyUpdate: true
+    defaultValue: 0
   },
   createdAt: {
     type: Date,

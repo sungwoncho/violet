@@ -26,8 +26,11 @@ Package.onUse(function(api) {
   ], 'server');
 
   api.export('Posts');
+});
 
-  // Tests (required here so that it can be picked up by velocity)
+Package.onTest(function (api) {
+  api.use('violet:test-support');
+  api.use('violet:post');
   api.addFiles([
     'tests/post_tests.js'
   ], 'server');

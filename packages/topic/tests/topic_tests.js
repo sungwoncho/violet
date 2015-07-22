@@ -1,19 +1,21 @@
-describe("submitPost", function(){
-  it("creates a post", function(){
+describe("submitTopic", function(){
+  it("creates a topic", function(){
     // Setup
     sinon.stub(Meteor, 'userId', function () { return 1; });
     sinon.stub(Meteor, 'user', function () { return {username: 'jon'}; });
 
-    post = {
+    var topic = {
+      title: 'testTitle',
       body: 'testBody',
-      topicId: 'testTopicId'
+      categoryId: 'testcategoryId'
     };
 
-    Meteor.call('submitPost', post);
-    expect(Posts.find().count()).to.equal(1);
+    Meteor.call('submitTopic', topic);
+
+    expect(Topics.find().count()).to.equal(1);
 
     // Teardown
-    Posts.remove({});
+    Topics.remove({});
     Meteor.userId.restore();
     Meteor.user.restore();
   });

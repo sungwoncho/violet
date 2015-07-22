@@ -25,10 +25,10 @@ Posts.attachSchema(Schema.posts);
 
 Meteor.methods({
   submitPost: function (post) {
-    check(post, {
-      body: String,
-      topicId: String
-    });
+    // check(post, {
+    //   body: String,
+    //   topicId: String
+    // });
 
     post.author = Meteor.user().username;
     post.authorId = Meteor.userId();
