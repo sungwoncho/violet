@@ -1,13 +1,23 @@
-Router.route('/category/:_id', {
-  name: 'category',
+Router.route('/c', {
+  name: 'category.index',
+  template: 'categories',
+  waitOn: function () {
+    return [
+      Meteor.subscribe('categories')
+    ];
+  }
+});
+
+Router.route('/c/:slug', {
+  name: 'category.show',
   template: 'category',
   data: function () {
-    return Categories.findOne(this.params._id);
+    return Categories.findOne({slug: this.params.slug});
   },
   waitOn: function () {
     return [
-      Meteor.subscribe('category', this.params._id),
-      Meteor.subscribe('topics', this.params._id)
+      Meteor.subscribe('category', this.params.slug),
+      Meteor.subscribe('topics', this.params.slug)
     ];
   }
 });

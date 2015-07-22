@@ -1,0 +1,6 @@
+<template name="adminSettings">
+  {{#autoForm id='settings-form' collection='Settings' doc=setting type='update'}}
+    {{> afQuickField name='public.appName'}}
+    <button type='submit'>Update</button>
+  {{/autoForm}}
+</template>

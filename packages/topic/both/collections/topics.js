@@ -1,6 +1,6 @@
 Topics = new Mongo.Collection('topics');
 
-TopicSchema = new SimpleSchema({
+Schema.topics = new SimpleSchema({
   title: {
     type: String
   },
@@ -16,29 +16,20 @@ TopicSchema = new SimpleSchema({
   authorId: {
     type: String
   },
+  slug: {
+    type: String,
+    index: true,
+    unique: true
+  },
   createdAt: {
     type: Date,
-    autoValue: function () {
-      return new Date();
-    }
+    defaultValue: new Date(),
+    denyUpdate: true
   }
 });
 
-Topics.attachSchema(TopicSchema);
+Topics.attachSchema(Schema.topics);
 
-Meteor.methods({
-  submitTopic: function (topic) {
-    _.extend(topic, {
-      author: Meteor.user().username,
-      authorId: Meteor.userId()
-    });
-
-    var topicId = Topics.insert(topic);
-
-    if (Meteor.isClient) {
-      Router.go('topic', {_id: topicId});
-    }
-
-    return topicId;
-  }
+Topics.simpleSchema().messages({
+  notUnique: 'A duplicate slug exists.'
 });

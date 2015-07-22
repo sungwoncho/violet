@@ -1,31 +1,73 @@
 Meteor.startup(function () {
-  if (!process.env.IS_MIRROR && Categories.find().count() === 0) {
+  if (Settings.find().count() === 0 && Categories.find().count() === 0) {
+
+    // If not in test
+    if (!process.env.IS_MIRROR) {
+      for (var i = 0; i < 10; i++) {
+        var category = {
+          name: Fake.word(),
+          description: Fake.paragraph()
+        };
+        var categoryId = Meteor.call('createCategory', category);
+      }
+    }
+
     var jonId = Accounts.createUser({
       username: 'jon',
-      email: 'jon@example.com',
-      password: 'testPassword',
+      email: 'test@test.com',
+      password: 'pass1234',
       profile: {
-        username: 'jon'
+        username: 'jon',
       }
     });
-    var jon = Meteor.users.findOne(jonId);
+    Meteor.users.update(jonId, {$set: {isAdmin: true}});
 
-    for (var i = 0; i < 10; i++) {
-      var categoryId = Categories.insert({
-        name: Fake.word()
-      });
+    Accounts.createUser({
+      username: 'nora',
+      email: 'test2@test.com',
+      password: 'pass1234',
+      profile: {
+        username: 'nora'
+      }
+    });
 
-      var topicId = Topics.insert({
-        title: Fake.sentence(),
-        categoryId: categoryId
-      });
+    Settings.insert({
+      public: {
+        appName: 'Violet Development'
+      }
+    });
 
-      Posts.insert({
-        body: Fake.paragraph(),
-        topicId: topicId,
-        author: jon.username,
-        authorId: jon._id
-      });
-    }
+
+    // var jonId = Accounts.createUser({
+    //   username: 'jon',
+    //   email: 'jon@example.com',
+    //   password: 'testPassword',
+    //   profile: {
+    //     username: 'jon'
+    //   }
+    // });
+    // var jon = Meteor.users.findOne(jonId);
+    //
+    // for (var i = 0; i < 10; i++) {
+    //   var category = {
+    //     name: Fake.word()
+    //   };
+    //   var categoryId = Meteor.call('createCategory', category);
+    //
+    //   var topic = {
+    //     title: Fake.sentence(),
+    //     categoryId: categoryId,
+    //     body: Fake.paragraph(),
+    //   };
+    //
+    //   var topicId = Meteor.call('submitTopic', topic);
+    //
+    //   Posts.insert({
+    //     body: Fake.paragraph(),
+    //     topicId: topicId,
+    //     author: jon.username,
+    //     authorId: jon._id
+    //   });
+    // }
   }
 });

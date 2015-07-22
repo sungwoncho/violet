@@ -8,16 +8,16 @@ Router.route('/t/new', {
   }
 });
 
-Router.route('/t/:_id', {
+Router.route('/t/:slug', {
   name: 'topic',
   template: 'topic',
   data: function () {
-    return Topics.findOne(this.params._id);
+    return Topics.findOne({slug: this.params.slug});
   },
   waitOn: function () {
     return [
-      Meteor.subscribe('topic', this.params._id),
-      Meteor.subscribe('posts', this.params._id)
+      Meteor.subscribe('topic', this.params.slug),
+      Meteor.subscribe('posts', this.params.slug)
     ];
   }
 });

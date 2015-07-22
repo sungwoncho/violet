@@ -1,0 +1,24 @@
+<template name="adminEditCategory">
+  <a href="{{pathFor route='adminCategories'}}">Back</a>
+
+  <form id='category-form'>
+    <label>
+      Name
+      <input type="text" name="name" value={{name}}>
+    </label>
+
+    <label>
+      Position (1, 2, 3, ...)
+      <input type="number" name="position" value={{position}}>
+    </label>
+
+    <label>
+      Description
+      <textarea name="description">{{description}}</textarea>
+    </label>
+
+    <input type="submit" value="Save">
+  </form>
+
+  <a href="#" class="remove-category-btn">Remove</a>
+</template>

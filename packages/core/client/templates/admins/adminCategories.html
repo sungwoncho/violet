@@ -1,0 +1,34 @@
+<template name="adminCategories">
+  <h1>Edit Categories</h1>
+
+  <ul>
+    {{#each categories}}
+      <li>
+        {{name}}
+
+        position: {{position}}
+
+        description: {{description}}
+
+        topicCount: {{topicCount}}
+
+        <a href="{{pathFor route='adminEditCategory'}}">Edit</a>
+      </li>
+    {{/each}}
+  </ul>
+
+  <form id="new-category">
+    <label>
+      Name
+      <input type="text" name="name">
+    </label>
+
+    <label>
+      Description
+      <textarea name="description"></textarea>
+    </label>
+
+    <input type="submit" value="Save">
+  </form>
+
+</template>

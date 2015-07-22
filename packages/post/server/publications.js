@@ -1,3 +1,5 @@
-Meteor.publish('posts', function (topicId) {
-  return Posts.find({topicId: topicId});
+Meteor.publish('posts', function (topicSlug) {
+  var topic = Topics.findOne({slug: topicSlug});
+
+  return Posts.find({topicId: topic._id});
 });

@@ -12,7 +12,7 @@ Package.onUse(function(api) {
   var packages = [
     'joshowens:accounts-entry@1.0.3',
     'accounts-password',
-    'violet:dependency'
+    'violet:lib'
   ];
 
   api.use(packages);
@@ -24,8 +24,13 @@ Package.onUse(function(api) {
   ], ['client', 'server']);
 
   api.addFiles([
-    'client/config.js'
+    'client/config.js',
+    'client/subscriptions.js'
   ], 'client');
+
+  api.addFiles([
+    'server/publications.js'
+  ], 'server');
 });
 
 Package.onTest(function(api) {

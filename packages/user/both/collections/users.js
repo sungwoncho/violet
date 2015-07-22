@@ -1,4 +1,4 @@
-var UserSchema = new SimpleSchema({
+Schema.users = new SimpleSchema({
   profile: {
     type: Object,
     blackbox: true
@@ -16,7 +16,11 @@ var UserSchema = new SimpleSchema({
   },
   createdAt: {
     type: Date
+  },
+  isAdmin: {
+    type: Boolean,
+    defaultValue: false
   }
 });
 
-Meteor.users.attachSchema(UserSchema);
+Meteor.users.attachSchema(Schema.users);

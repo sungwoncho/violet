@@ -6,10 +6,14 @@ Package.describe({
   documentation: 'README.md'
 });
 
+Npm.depends({
+  slug: '0.9.1'
+});
+
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
 
-  api.use('violet:core');
+  api.use('violet:lib');
 
   api.addFiles([
     'both/collections/topics.js',
@@ -24,7 +28,8 @@ Package.onUse(function(api) {
   ], 'client');
 
   api.addFiles([
-    'server/publications.js'
+    'server/publications.js',
+    'server/methods.js'
   ], 'server');
 
   api.export('Topics');

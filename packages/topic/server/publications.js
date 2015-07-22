@@ -1,11 +1,13 @@
-Meteor.publish('topics', function (categoryId) {
+Meteor.publish('topics', function (categorySlug) {
+  var categoryId = Categories.findOne({slug: categorySlug})._id;
+
   return Topics.find({categoryId: categoryId});
 });
 
-Meteor.publish('topic', function (_id) {
-  return Topics.find({_id: _id});
+Meteor.publish('topic', function (topicSlug) {
+  return Topics.find({slug: topicSlug});
 });
 
 Meteor.publish('recent-topics', function () {
-  return Topics.find({}, {sort: {date: -1}, limit: 10});
+  return Topics.find({}, {sort: {createdAt: -1}, limit: 10});
 });

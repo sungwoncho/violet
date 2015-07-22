@@ -9,7 +9,7 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
 
-  api.use('violet:core');
+  api.use('violet:lib');
 
   api.addFiles([
     'both/routes.js',
@@ -17,8 +17,6 @@ Package.onUse(function(api) {
   ], ['client', 'server']);
 
   api.addFiles([
-    'client/templates/posts.html',
-    'client/templates/posts.js',
     'client/templates/post.html',
     'client/templates/post.js'
   ], 'client');

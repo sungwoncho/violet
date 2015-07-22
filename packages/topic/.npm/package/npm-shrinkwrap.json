@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "slug": {
+      "version": "0.9.1",
+      "dependencies": {
+        "unicode": {
+          "version": "0.6.1",
+          "dependencies": {
+            "bufferstream": {
+              "version": "0.6.2",
+              "dependencies": {
+                "bufferjs": {
+                  "version": "2.0.0"
+                },
+                "buffertools": {
+                  "version": "2.1.3"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

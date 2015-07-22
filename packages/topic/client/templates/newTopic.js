@@ -1,9 +1,9 @@
 Template.newTopic.onRendered(function () {
-  $('#summernote').summernote();
+  this.$('#summernote').summernote();
 });
 
 Template.newTopic.onDestroyed(function () {
-  $('#summernote').destroy();
+  this.$('#summernote').destroy();
 });
 
 Template.newTopic.events({
@@ -18,7 +18,14 @@ Template.newTopic.events({
       body: topicBody
     };
 
-    Meteor.call('submitTopic', topic);
+    if (topicTitle === '')
+      tpl.$('.error').text('Title is required.');
+    if (topicBody === '')
+      tpl.$('.error').text('Body is required.');
+
+    Meteor.call('submitTopic', topic, function (err, topicSlug) {
+      Router.go('topic', {slug: topicSlug});
+    });
   }
 });
 
