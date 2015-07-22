@@ -1,1 +1,3 @@
-everything related to categories
+# Category
+
+Category contains everything related to categories.

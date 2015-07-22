@@ -33,6 +33,30 @@ Categories.simpleSchema().messages({
 });
 
 Meteor.methods({
+  createCategory: function (category) {
+    var maxPosition = Categories.find().count();
+
+    _.extend(category, {
+      slug: getSlug(category.name),
+      position: maxPosition + 1
+    });
+
+    var categoryId = Categories.insert(category);
+
+    return categoryId;
+  },
+  updateCategory: function (modifier, categoryId) {
+    var categoryName = modifier.$set.name;
+
+    // Generate a new slug
+    modifier.$set.slug = getSlug(categoryName);
+
+    Categories.update(categoryId, modifier);
+
+    var category = Categories.findOne(categoryId);
+
+    return category;
+  },
   incrementTopicCount: function (categoryId) {
     check(categoryId, String);
 

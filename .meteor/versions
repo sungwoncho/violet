@@ -52,9 +52,8 @@ mongo@1.1.0
 mrt:underscore-string-latest@2.3.3
 npm-bcrypt@0.7.8_2
 observe-sequence@1.0.6
+ongoworks:speakingurl@5.0.1
 ordered-dict@1.0.3
-practicalmeteor:chai@2.1.0_1
-practicalmeteor:sinon@1.14.1_2
 random@1.0.3
 reactive-dict@1.1.0
 reactive-var@1.0.5

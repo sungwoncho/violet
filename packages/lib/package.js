@@ -13,9 +13,9 @@ Package.onUse(function(api) {
     'meteor-platform',
     'iron:router@1.0.9',
     'aldeed:collection2@2.3.3',
-    'practicalmeteor:sinon@1.14.1', // testing
     'summernote:standalone@0.6.10',
-    'aldeed:autoform@5.3.1'
+    'aldeed:autoform@5.3.1',
+    'ongoworks:speakingurl@5.0.1'
   ];
 
   api.use(packages);
