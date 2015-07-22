@@ -62,11 +62,6 @@ Meteor.methods({
 
     return category;
   },
-  incrementTopicCount: function (categoryId) {
-    check(categoryId, String);
-
-    Categories.update(categoryId, {$inc: {topicCount: 1}});
-  },
   removeCategory: function (categoryId) {
     check(categoryId, String);
 

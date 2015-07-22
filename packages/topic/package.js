@@ -15,6 +15,10 @@ Package.onUse(function(api) {
 
   api.use('violet:lib');
 
+  // Depends on category
+  api.use('violet:category');
+  api.imply('violet:category');
+
   api.addFiles([
     'both/collections/topics.js',
     'both/routes.js',

@@ -60,7 +60,10 @@ Meteor.methods({
     var topicId = Topics.insert(topic);
     var topicSlug = Topics.findOne(topicId).slug;
 
-    Meteor.call('incrementTopicCount', topic.categoryId);
+    // increment the topicCount only on the server side
+    // don't update in a stub method because allowing update is not secure
+    if (! this.isSimluation)
+      Categories.update(topic.categoryId, {$inc: {topicCount: 1}});
 
     return topicSlug;
   }
