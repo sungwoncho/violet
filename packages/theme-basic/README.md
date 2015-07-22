@@ -1,4 +1,4 @@
-# Default Theme
+# Basic Theme
 
 This is the theme that Violet uses by default.
 

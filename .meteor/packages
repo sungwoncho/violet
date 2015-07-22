@@ -9,4 +9,4 @@ velocity:html-reporter
 anti:fake
 
 violet:core
-violet:theme-default
+violet:theme-basic

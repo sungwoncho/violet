@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'violet:theme-default',
+  name: 'violet:theme-basic',
   version: '0.0.1',
   summary: 'the default theme for Violet',
   git: '',

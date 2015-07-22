@@ -93,7 +93,7 @@ violet:category@0.0.1
 violet:core@0.0.1
 violet:lib@0.0.1
 violet:post@0.0.1
-violet:theme-default@0.0.1
+violet:theme-basic@0.0.1
 violet:topic@0.0.1
 violet:user@0.0.1
 webapp@1.2.0
