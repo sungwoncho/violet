@@ -1,1 +1,3 @@
-everything related to topics
+# Topic
+
+Topic contains everything related to topics.

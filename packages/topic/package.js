@@ -28,8 +28,7 @@ Package.onUse(function(api) {
   ], 'client');
 
   api.addFiles([
-    'server/publications.js',
-    'server/methods.js'
+    'server/publications.js'
   ], 'server');
 
   api.export('Topics');
