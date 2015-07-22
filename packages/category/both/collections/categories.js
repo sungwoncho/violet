@@ -34,6 +34,8 @@ Categories.simpleSchema().messages({
 
 Meteor.methods({
   createCategory: function (category) {
+    check(category, Object);
+
     var maxPosition = Categories.find().count();
 
     _.extend(category, {
@@ -46,6 +48,9 @@ Meteor.methods({
     return categoryId;
   },
   updateCategory: function (modifier, categoryId) {
+    check(modifier, Object);
+    check(categoryId, String);
+
     var categoryName = modifier.$set.name;
 
     // Generate a new slug
