@@ -36,4 +36,9 @@ Package.onUse(function(api) {
 });
 
 Package.onTest(function(api) {
+  api.use('violet:test-support');
+  api.use('violet:category');
+  api.addFiles([
+    'tests/category_tests.js'
+  ], 'server');
 });
