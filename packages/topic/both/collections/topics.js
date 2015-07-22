@@ -23,9 +23,8 @@ Schema.topics = new SimpleSchema({
   },
   createdAt: {
     type: Date,
-    autoValue: function () {
-      return new Date();
-    }
+    defaultValue: new Date(),
+    denyUpdate: true
   }
 });
 

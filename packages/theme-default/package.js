@@ -21,8 +21,10 @@ Package.onUse(function(api) {
     'client/stylesheets/shared/_variables.scss',
     'client/stylesheets/shared/_global.scss',
     'client/stylesheets/shared/_header.scss',
+    'client/stylesheets/shared/_topic_list.scss',
 
     'client/stylesheets/mixins/_buttons.scss',
+    'client/stylesheets/mixins/_tables.scss',
 
     'client/stylesheets/main.scss'
   ], 'client');
