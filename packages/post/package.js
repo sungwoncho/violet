@@ -11,6 +11,10 @@ Package.onUse(function(api) {
 
   api.use('violet:lib');
 
+  // Need to use Topics
+  api.use('violet:topic');
+  api.imply('violet:topic');
+
   api.addFiles([
     'both/routes.js',
     'both/collections/posts.js'

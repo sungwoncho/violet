@@ -21,6 +21,10 @@ Schema.topics = new SimpleSchema({
     index: true,
     unique: true
   },
+  postCount: {
+    type: Number,
+    defaultValue: 0
+  },
   createdAt: {
     type: Date,
     defaultValue: new Date(),

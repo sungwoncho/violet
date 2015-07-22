@@ -25,14 +25,23 @@ Posts.attachSchema(Schema.posts);
 
 Meteor.methods({
   submitPost: function (post) {
-    // check(post, {
-    //   body: String,
-    //   topicId: String
-    // });
+    check(post, {
+      body: String,
+      topicId: String
+    });
 
-    post.author = Meteor.user().username;
-    post.authorId = Meteor.userId();
+    _.extend(post, {
+      author: Meteor.user().username,
+      authorId: Meteor.userId()
+    });
 
-    Posts.insert(post);
+    var postId = Posts.insert(post);
+
+    // increment the postCount only on the server side
+    // don't update in a stub method because allowing update is a security hole
+    if (! this.isSimluation)
+      Topics.update(post.topicId, {$inc: {postCount: 1}});
+
+    return postId;
   }
 });
