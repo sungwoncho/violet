@@ -1,11 +1,21 @@
 <template name="topic">
-  <h1>{{title}}</h1>
+  <article class="topic">
+    <div class="topic-header">
+      <h1>{{title}}</h1>
+    </div>
 
-  {{{body}}}
+    <p class="topic-body">
+      {{{body}}}
+    </p>
 
-  <div>
-    By {{author}}
-  </div>
+    <div class="topic-footer">
+      <ul>
+        <li>Author: {{author}}</li>
+        <li>Category name</li>
+        <li>Posted at</li>
+      </ul>
+    </div>
+  </article>
 
   {{#each posts}}
     {{>post}}

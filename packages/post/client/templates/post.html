@@ -1,5 +1,17 @@
 <template name="post">
-  <p>
-    {{body}}
-  </p>
+  <article class="post">
+    <div class="post-header">
+      {{author}} writes:
+    </div>
+
+    <p class="post-body">
+      {{{body}}}
+    </p>
+
+    <div class="post-footer">
+      <ul>
+        <li>Posted at: </li>
+      </ul>
+    </div>
+  </article>
 </template>

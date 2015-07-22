@@ -1,0 +1,12 @@
+.post {
+  border-bottom: 1px solid $gray;
+  padding: 20px 0;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+}
+
+.post-body {
+  padding: 50px;
+}

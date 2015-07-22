@@ -18,13 +18,19 @@ Package.onUse(function(api) {
   api.use(packages);
 
   api.addFiles([
+    // Shared
     'client/stylesheets/shared/_variables.scss',
     'client/stylesheets/shared/_global.scss',
     'client/stylesheets/shared/_header.scss',
     'client/stylesheets/shared/_topic_list.scss',
 
+    // Mixins
     'client/stylesheets/mixins/_buttons.scss',
     'client/stylesheets/mixins/_tables.scss',
+
+    // Template-specific
+    'client/stylesheets/templates/_topic.scss',
+    'client/stylesheets/templates/_post.scss',
 
     'client/stylesheets/main.scss'
   ], 'client');
