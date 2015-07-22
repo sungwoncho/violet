@@ -17,8 +17,9 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'both/collections/topics.js',
-    'both/routes.js'
-  ]);
+    'both/routes.js',
+    'both/utils.js',
+  ], ['client', 'server']);
 
   api.addFiles([
     'client/templates/topic.html',
@@ -38,6 +39,7 @@ Package.onTest(function(api) {
   api.use('violet:test-support');
   api.use('violet:topic');
   api.addFiles([
-    'tests/topic_tests.js'
+    'tests/topic_tests.js',
+    'tests/utils_tests.js'
   ], 'server');
 });
