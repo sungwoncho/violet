@@ -6,10 +6,6 @@ Package.describe({
   documentation: 'README.md'
 });
 
-Npm.depends({
-  slug: '0.9.1'
-});
-
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
 
@@ -26,6 +22,8 @@ Package.onUse(function(api) {
   ], ['client', 'server']);
 
   api.addFiles([
+    'client/templates/topicIndex.html',
+    'client/templates/topicIndex.js',
     'client/templates/topic.html',
     'client/templates/topic.js',
     'client/templates/newTopic.html',

@@ -16,8 +16,7 @@ Router.route('/c/:slug', {
   },
   waitOn: function () {
     return [
-      Meteor.subscribe('category', this.params.slug),
-      Meteor.subscribe('topics', this.params.slug)
+      Meteor.subscribe('category', this.params.slug)
     ];
   }
 });

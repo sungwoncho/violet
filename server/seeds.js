@@ -39,7 +39,7 @@ Meteor.startup(function () {
       Meteor.userId = function () { return 'testUserId'; };
 
       // Populate categories, topics, and posts
-      for (var i = 0; i < 11; i++) {
+      for (var i = 0; i < 5; i++) {
         var category = {
           name: Fake.word(),
           slug: i,
@@ -47,7 +47,7 @@ Meteor.startup(function () {
         };
         var categoryId = Meteor.call('createCategory', category);
 
-        for (var j = 0; j < 11; j++) {
+        for (var j = 0; j < 22; j++) {
           var topic = {
             title: Fake.word(),
             body: Fake.paragraph(),

@@ -1,0 +1,28 @@
+<template name="topicIndex">
+  <a href="{{pathFor route='newTopic'}}" class="btn-sm">New Topic</a>
+
+  <table class="topic-list">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Posts</th>
+        <th>Active</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each recentTopics}}
+        <tr>
+          <td><a href="{{pathFor 'topic' data=this}}">{{title}}</a></td>
+          <td>{{author}}</td>
+          <td>{{postCount}}</td>
+          <td>{{timeFromNow lastActivity}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  {{#unless Template.subscriptionsReady}}
+    {{> loading}}
+  {{/unless}}
+</template>

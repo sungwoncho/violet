@@ -1,9 +1,5 @@
 <template name="category">
   <h1>{{name}}</h1>
 
-  {{#each topics}}
-    <h1>
-      <a href="{{pathFor route='topic'}}">{{title}}</a>
-    </h1>
-  {{/each}}
+  {{> topicIndex}}
 </template>

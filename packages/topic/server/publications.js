@@ -1,7 +1,7 @@
-Meteor.publish('topics', function (categorySlug) {
+Meteor.publish('topics', function (categorySlug, limit) {
   var categoryId = Categories.findOne({slug: categorySlug})._id;
 
-  return Topics.find({categoryId: categoryId});
+  return Topics.find({categoryId: categoryId}, {sort: {lastActivity: -1}, limit: limit});
 });
 
 Meteor.publish('topic', function (topicSlug) {

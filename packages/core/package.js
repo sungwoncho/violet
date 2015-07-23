@@ -30,7 +30,6 @@ Package.onUse(function(api) {
     'client/templates/shared/header.html',
     'client/templates/shared/loading.html',
     'client/templates/home.html',
-    'client/templates/home.js',
     'client/templates/admins/adminSettings.html',
     'client/templates/admins/adminSettings.js',
     'client/templates/admins/adminCategories.html',
