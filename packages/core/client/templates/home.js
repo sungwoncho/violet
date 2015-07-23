@@ -24,6 +24,6 @@ Template.home.onRendered(function () {
 
 Template.home.helpers({
   recentTopics: function () {
-    return Topics.find();
+    return Topics.find({}, {sort: {lastActivity: -1}});
   }
 });

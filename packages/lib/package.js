@@ -16,7 +16,8 @@ Package.onUse(function(api) {
     'summernote:standalone@0.6.10',
     'aldeed:autoform@5.3.1',
     'ongoworks:speakingurl@5.0.1',
-    'reactive-var@1.0.5'
+    'reactive-var@1.0.5',
+    'momentjs:moment@2.10.3'
   ];
 
   api.use(packages);

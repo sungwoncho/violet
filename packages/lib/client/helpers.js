@@ -10,3 +10,13 @@ Template.registerHelper('getSetting', function (key) {
   if (settings)
     return settings.public[key];
 });
+
+Template.registerHelper('formatDate', function (rawDate) {
+  return Violet.utils.formatDate(rawDate);
+});
+
+Template.registerHelper('timeFromNow', function (rawDate) {
+  if (! rawDate) return;
+
+  return moment(rawDate).fromNow();
+});

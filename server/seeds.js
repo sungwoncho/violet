@@ -38,8 +38,8 @@ Meteor.startup(function () {
       Meteor.user = function () { return { isAdmin: true, username: 'jon' }; };
       Meteor.userId = function () { return 'testUserId'; };
 
-      // Populate categories and topics
-      for (var i = 0; i < 20; i++) {
+      // Populate categories, topics, and posts
+      for (var i = 0; i < 11; i++) {
         var category = {
           name: Fake.word(),
           slug: i,
@@ -47,14 +47,25 @@ Meteor.startup(function () {
         };
         var categoryId = Meteor.call('createCategory', category);
 
-        for (var j = 0; j < 30; j++) {
+        for (var j = 0; j < 11; j++) {
           var topic = {
             title: Fake.word(),
             body: Fake.paragraph(),
             categoryId: categoryId,
           };
 
-          Meteor.call('submitTopic', topic);
+          var topicSlug = Meteor.call('submitTopic', topic);
+          var savedTopic = Topics.findOne({slug: topicSlug});
+          var numPosts = _.random(2, 20);
+
+          for (var k = 0; k < numPosts; k++) {
+            var post = {
+              body: 'testBody',
+              topicId: savedTopic._id
+            };
+
+            Meteor.call('submitPost', post);
+          }
         }
       }
 

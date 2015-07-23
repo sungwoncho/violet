@@ -6,6 +6,8 @@
       <tr>
         <th>Title</th>
         <th>Author</th>
+        <th>Posts</th>
+        <th>Active</th>
       </tr>
     </thead>
     <tbody>
@@ -13,6 +15,8 @@
         <tr>
           <td><a href="{{pathFor 'topic' data=this}}">{{title}}</a></td>
           <td>{{author}}</td>
+          <td>{{postCount}}</td>
+          <td>{{timeFromNow lastActivity}}</td>
         </tr>
       {{/each}}
     </tbody>

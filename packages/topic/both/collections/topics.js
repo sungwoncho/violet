@@ -25,6 +25,10 @@ Schema.topics = new SimpleSchema({
     type: Number,
     defaultValue: 0
   },
+  lastActivity: {
+    type: Date,
+    defaultValue: new Date()
+  },
   createdAt: {
     type: Date,
     defaultValue: new Date(),
