@@ -1,3 +1,13 @@
+Router.onBeforeAction(function () {
+  if (! Meteor.user()) {
+    this.render('entrySignIn');
+  } else {
+    this.next();
+  }
+}, {
+  only: ['newTopic']
+});
+
 Router.route('/t/new', {
   name: 'newTopic',
   template: 'newTopic',

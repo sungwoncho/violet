@@ -44,6 +44,8 @@ Topics.simpleSchema().messages({
 
 Meteor.methods({
   submitTopic: function (topic) {
+    if (! Meteor.user()) return;
+
     var nonEmptyString = Match.Where(function (arg) {
       check(arg, String);
       return arg.length > 0;
