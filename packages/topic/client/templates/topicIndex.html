@@ -1,6 +1,13 @@
 <template name="topicIndex">
   <a href="{{pathFor route='newTopic'}}" class="btn-sm">New Topic</a>
 
+  <select class="category-select">
+    <option value="all">All</option>
+    {{#each categories}}
+      <option value="{{slug}}">{{name}}</option>
+    {{/each}}
+  </select>
+
   <table class="topic-list">
     <thead>
       <tr>

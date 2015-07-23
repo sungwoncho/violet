@@ -13,6 +13,8 @@ Template.topicIndex.onCreated(function () {
     } else {
       self.subscribe('recent-topics', self.limit.get());
     }
+
+    self.subscribe('categories');
   });
 });
 
@@ -26,10 +28,32 @@ Template.topicIndex.onRendered(function () {
       self.limit.set(limit + postsPerPage);
     }
   });
+
+  // Choose the current category
+  if (Router.current().route.getName() === 'category.show') {
+    console.log('in here');
+    var slug = Router.current().params.slug;
+    this.$('.category-select').val(slug);
+  }
 });
 
 Template.topicIndex.helpers({
   recentTopics: function () {
     return Topics.find({}, {sort: {lastActivity: -1}});
+  },
+  categories: function () {
+    return Categories.find();
+  }
+});
+
+Template.topicIndex.events({
+  'change .category-select': function (e, tpl) {
+    var categorySlug = e.target.value;
+
+    if (categorySlug === 'all') {
+      Router.go('home');
+    } else {
+      Router.go('category.show', {slug: categorySlug});
+    }
   }
 });
