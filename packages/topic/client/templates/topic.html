@@ -21,7 +21,9 @@
     {{>post}}
   {{/each}}
 
-  <h2>New Post</h2>
-  <div class="summernote"></div>
-  <button class="submit-post">Post</button>
+  {{#if currentUser}}
+    <h2>New Post</h2>
+    <div class="summernote"></div>
+    <button class="submit-post">Post</button>
+  {{/if}}
 </template>

@@ -25,6 +25,8 @@ Posts.attachSchema(Schema.posts);
 
 Meteor.methods({
   submitPost: function (post) {
+    if (! Meteor.user()) return;
+
     check(post, {
       body: String,
       topicId: String
