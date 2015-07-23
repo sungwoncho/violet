@@ -28,6 +28,7 @@ Package.onUse(function(api) {
     'client/templates/shared/layout.html',
     'client/templates/shared/head.html',
     'client/templates/shared/header.html',
+    'client/templates/shared/loading.html',
     'client/templates/home.html',
     'client/templates/home.js',
     'client/templates/admins/adminSettings.html',

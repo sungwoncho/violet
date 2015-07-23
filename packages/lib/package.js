@@ -15,7 +15,8 @@ Package.onUse(function(api) {
     'aldeed:collection2@2.3.3',
     'summernote:standalone@0.6.10',
     'aldeed:autoform@5.3.1',
-    'ongoworks:speakingurl@5.0.1'
+    'ongoworks:speakingurl@5.0.1',
+    'reactive-var@1.0.5'
   ];
 
   api.use(packages);

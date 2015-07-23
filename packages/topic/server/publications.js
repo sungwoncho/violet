@@ -8,6 +8,6 @@ Meteor.publish('topic', function (topicSlug) {
   return Topics.find({slug: topicSlug});
 });
 
-Meteor.publish('recent-topics', function () {
-  return Topics.find({}, {sort: {createdAt: -1}, limit: 10});
+Meteor.publish('recent-topics', function (limit) {
+  return Topics.find({}, {sort: {createdAt: -1}, limit: limit});
 });

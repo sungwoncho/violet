@@ -17,4 +17,9 @@
       {{/each}}
     </tbody>
   </table>
+
+  {{#unless Template.subscriptionsReady}}
+    {{> loading}}
+  {{/unless}}
+
 </template>

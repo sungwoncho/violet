@@ -20,3 +20,13 @@ a {
 .btn-sm {
   @include small-button;
 }
+
+.spinner {
+  text-align: center;
+  padding: 0.8em;
+  font-size: 3em;
+
+  .fa-spin {
+    animation: fa-spin 0.4s infinite linear;
+  }
+}

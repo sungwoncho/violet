@@ -3,71 +3,65 @@ Meteor.startup(function () {
 
     // If not in test
     if (!process.env.IS_MIRROR) {
-      for (var i = 0; i < 10; i++) {
+      // Populate test users
+      var jonId = Accounts.createUser({
+        username: 'jon',
+        email: 'test@test.com',
+        password: 'pass1234',
+        profile: {
+          username: 'jon',
+        }
+      });
+      Meteor.users.update(jonId, {$set: {isAdmin: true}});
+
+      Accounts.createUser({
+        username: 'nora',
+        email: 'test2@test.com',
+        password: 'pass1234',
+        profile: {
+          username: 'nora'
+        }
+      });
+
+      // Populate settings
+      Settings.insert({
+        public: {
+          appName: 'Violet Development'
+        }
+      });
+
+      // Stubs
+      var _Meteor = {};
+      _Meteor._user = Meteor.user;
+      _Meteor._userId = Meteor.userId;
+
+      Meteor.user = function () { return { isAdmin: true, username: 'jon' }; };
+      Meteor.userId = function () { return 'testUserId'; };
+
+      // Populate categories and topics
+      for (var i = 0; i < 20; i++) {
         var category = {
           name: Fake.word(),
+          slug: i,
           description: Fake.paragraph()
         };
         var categoryId = Meteor.call('createCategory', category);
+
+        for (var j = 0; j < 30; j++) {
+          var topic = {
+            title: Fake.word(),
+            body: Fake.paragraph(),
+            categoryId: categoryId,
+          };
+
+          Meteor.call('submitTopic', topic);
+        }
       }
+
+      // Restore stub
+      Meteor.user = _Meteor._user;
+      Meteor.userId = _Meteor._userId;
     }
 
-    var jonId = Accounts.createUser({
-      username: 'jon',
-      email: 'test@test.com',
-      password: 'pass1234',
-      profile: {
-        username: 'jon',
-      }
-    });
-    Meteor.users.update(jonId, {$set: {isAdmin: true}});
-
-    Accounts.createUser({
-      username: 'nora',
-      email: 'test2@test.com',
-      password: 'pass1234',
-      profile: {
-        username: 'nora'
-      }
-    });
-
-    Settings.insert({
-      public: {
-        appName: 'Violet Development'
-      }
-    });
-
-
-    // var jonId = Accounts.createUser({
-    //   username: 'jon',
-    //   email: 'jon@example.com',
-    //   password: 'testPassword',
-    //   profile: {
-    //     username: 'jon'
-    //   }
-    // });
-    // var jon = Meteor.users.findOne(jonId);
-    //
-    // for (var i = 0; i < 10; i++) {
-    //   var category = {
-    //     name: Fake.word()
-    //   };
-    //   var categoryId = Meteor.call('createCategory', category);
-    //
-    //   var topic = {
-    //     title: Fake.sentence(),
-    //     categoryId: categoryId,
-    //     body: Fake.paragraph(),
-    //   };
-    //
-    //   var topicId = Meteor.call('submitTopic', topic);
-    //
-    //   Posts.insert({
-    //     body: Fake.paragraph(),
-    //     topicId: topicId,
-    //     author: jon.username,
-    //     authorId: jon._id
-    //   });
-    // }
   }
 });

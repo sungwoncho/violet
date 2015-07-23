@@ -4,10 +4,7 @@ Router.configure({
 
 Router.route('/', {
 	name: 'home',
-  template: 'home',
-  waitOn: function () {
-    return Meteor.subscribe('recent-topics');
-  }
+  template: 'home'
 });
 
 // Admin Routes
