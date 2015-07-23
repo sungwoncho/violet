@@ -1,4 +1,14 @@
 describe("createCategory", function(){
+  // Setup
+  beforeEach(function() {
+    sinon.stub(Meteor, 'user', function () { return {isAdmin: true}; });
+  });
+
+  // Teardown
+  afterEach(function() {
+   Meteor.user.restore();
+  });
+
   it("creates a category", function(){
     var category = {
       name: 'testName',
@@ -14,6 +24,16 @@ describe("createCategory", function(){
 });
 
 describe("updateCategory", function(){
+  // Setup
+  beforeEach(function() {
+    sinon.stub(Meteor, 'user', function () { return {isAdmin: true}; });
+  });
+
+  // Teardown
+  afterEach(function() {
+   Meteor.user.restore();
+  });
+
   it("updates a category name and generates an appropriate slug", function(){
     var categoryId = Categories.insert({
       name: 'testName',

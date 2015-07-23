@@ -34,6 +34,9 @@ Categories.simpleSchema().messages({
 
 Meteor.methods({
   createCategory: function (category) {
+    // Todo: Abstract the authorization logic
+    if (! Meteor.user() || ! Meteor.user().isAdmin) return;
+
     check(category, Object);
 
     var maxPosition = Categories.find().count();
@@ -48,6 +51,8 @@ Meteor.methods({
     return categoryId;
   },
   updateCategory: function (modifier, categoryId) {
+    if (! Meteor.user() || ! Meteor.user().isAdmin) return;
+
     check(modifier, Object);
     check(categoryId, String);
 
@@ -63,6 +68,8 @@ Meteor.methods({
     return category;
   },
   removeCategory: function (categoryId) {
+    if (! Meteor.user() || ! Meteor.user().isAdmin) return;
+
     check(categoryId, String);
 
     Categories.remove(categoryId);
