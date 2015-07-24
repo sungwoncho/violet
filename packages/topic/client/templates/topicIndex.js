@@ -1,15 +1,13 @@
-var postsPerPage = 12;
+var topicsPerPage = 12;
 
 Template.topicIndex.onCreated(function () {
   var self = this;
 
-  this.limit = new ReactiveVar(postsPerPage);
+  this.limit = new ReactiveVar(topicsPerPage);
 
   this.autorun(function () {
-    var currentRoute = Router.current();
-
-    if (currentRoute.route.getName() === 'category.show') {
-      self.subscribe('topics', currentRoute.params.slug, self.limit.get());
+    if (CurrentRoute.is('category.show')) {
+      self.subscribe('topics', CurrentRoute.params.slug, self.limit.get());
     } else {
       self.subscribe('recent-topics', self.limit.get());
     }
@@ -25,13 +23,12 @@ Template.topicIndex.onRendered(function () {
   $(window).scroll(function () {
     if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
       var limit = self.limit.get();
-      self.limit.set(limit + postsPerPage);
+      self.limit.set(limit + topicsPerPage);
     }
   });
 
   // Choose the current category
   if (Router.current().route.getName() === 'category.show') {
-    console.log('in here');
     var slug = Router.current().params.slug;
     this.$('.category-select').val(slug);
   }
