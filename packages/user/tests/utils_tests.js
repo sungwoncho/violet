@@ -20,12 +20,12 @@ describe("incrementTopicCount", function(){
     expect(jonReloaded.stats.topicCount).to.equal(1);
   });
 
-  it("increments the submitCount of the user", function(){
+  it("increments the submissionCount of the user", function(){
     var jon = Meteor.users.findOne({username: 'jon'});
     Meteor.users.incrementTopicCount(jon._id);
 
     var jonReloaded = Meteor.users.findOne({username: 'jon'});
-    expect(jonReloaded.stats.submitCount).to.equal(1);
+    expect(jonReloaded.stats.submissionCount).to.equal(1);
   });
 });
 
@@ -51,11 +51,11 @@ describe("incrementPostCount", function(){
     expect(jonReloaded.stats.postCount).to.equal(1);
   });
 
-  it("increments the submitCount of the user", function(){
+  it("increments the submissionCount of the user", function(){
     var jon = Meteor.users.findOne({username: 'jon'});
     Meteor.users.incrementPostCount(jon._id);
 
     var jonReloaded = Meteor.users.findOne({username: 'jon'});
-    expect(jonReloaded.stats.submitCount).to.equal(1);
+    expect(jonReloaded.stats.submissionCount).to.equal(1);
   });
 });

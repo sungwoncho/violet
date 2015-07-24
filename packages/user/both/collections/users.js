@@ -32,8 +32,8 @@ Schema.users = new SimpleSchema({
     type: Number,
     defaultValue: 0
   },
-  // submitCount = topicCount + postCount
-  'stats.submitCount': {
+  // submissionCount = topicCount + postCount
+  'stats.submissionCount': {
     type: Number,
     defaultValue: 0
   },
