@@ -44,6 +44,7 @@ Meteor.methods({
     if (! this.isSimluation) {
       Topics.update(post.topicId, {$inc: {postCount: 1}});
       Topics.update(post.topicId, {$set: {lastActivity: new Date()}});
+      Meteor.users.incrementPostCount(Meteor.userId());
     }
 
     return postId;

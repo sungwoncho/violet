@@ -44,4 +44,17 @@ describe("submitPost", function(){
     var topic = Topics.findOne(topicId);
     expect(topic.postCount).to.equal(1);
   });
+
+  it("calls Meteor.users.incrementPostCount with the currentUser's id", function(){
+    var spy = sinon.spy(Meteor.users, 'incrementPostCount');
+
+    var post = {
+      body: 'testBody',
+      topicId: 'testTopicId'
+    };
+
+    Meteor.call('submitPost', post);
+
+    expect(spy.calledWith(1)).to.equal(true);
+  });
 });
