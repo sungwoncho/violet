@@ -20,7 +20,31 @@ Schema.users = new SimpleSchema({
   isAdmin: {
     type: Boolean,
     defaultValue: false
+  },
+  stats: {
+    type: Object
+  },
+  'stats.topicCount': {
+    type: Number,
+    defaultValue: 0
+  },
+  'stats.postCount': {
+    type: Number,
+    defaultValue: 0
+  },
+  // submitCount = topicCount + postCount
+  'stats.submitCount': {
+    type: Number,
+    defaultValue: 0
+  },
+  'stats.lastActivity': {
+    type: Date,
+    defaultValue: new Date()
   }
 });
 
 Meteor.users.attachSchema(Schema.users);
+
+Schema.stats = new SimpleSchema({
+
+});

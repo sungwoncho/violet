@@ -18,7 +18,9 @@ Package.onUse(function(api) {
     'ongoworks:speakingurl@5.0.1',
     'reactive-var@1.0.5',
     'momentjs:moment@2.10.3',
-    'sungwoncho:iron-utils'
+    'sungwoncho:iron-utils',
+    'joshowens:accounts-entry@1.0.3',
+    'accounts-password'
   ];
 
   api.use(packages);

@@ -1,12 +1,14 @@
 describe("submitTopic", function(){
   // Setup
-  beforeEach(function () {
+  beforeEach(function() {
     sinon.stub(Meteor, 'userId', function () { return 1; });
     sinon.stub(Meteor, 'user', function () { return {username: 'jon'}; });
+
   });
 
   // Teardown
   afterEach(function () {
+    Categories.remove({});
     Topics.remove({});
     Meteor.userId.restore();
     Meteor.user.restore();
@@ -42,5 +44,19 @@ describe("submitTopic", function(){
 
     var category = Categories.findOne(categoryId);
     expect(category.topicCount).to.equal(1);
+  });
+
+  it("calls Meteor.users.incrementTopicCount for the user", function(){
+    var spy = sinon.spy(Meteor.users, 'incrementTopicCount');
+
+    var topic = {
+      title: 'testTitle',
+      body: 'testBody',
+      categoryId: 'testCategoryId'
+    };
+
+    Meteor.call('submitTopic', topic);
+
+    expect(spy.calledWith(1)).to.equal(true);
   });
 });

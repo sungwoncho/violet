@@ -40,6 +40,7 @@ Package.onUse(function(api) {
 Package.onTest(function(api) {
   api.use('violet:test-support');
   api.use('violet:topic');
+  api.use('accounts-password');
   api.addFiles([
     'tests/topic_tests.js',
     'tests/utils_tests.js'

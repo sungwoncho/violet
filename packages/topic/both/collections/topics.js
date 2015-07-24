@@ -70,6 +70,7 @@ Meteor.methods({
     // don't update in a stub method because allowing update is not secure
     if (! this.isSimluation)
       Categories.update(topic.categoryId, {$inc: {topicCount: 1}});
+      Meteor.users.incrementTopicCount(Meteor.userId());
 
     return topicSlug;
   }

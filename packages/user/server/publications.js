@@ -5,3 +5,7 @@ Meteor.publish('userData', function () {
     return this.ready();
   }
 });
+
+Meteor.publish('userProfile', function (username) {
+  return Meteor.users.find({username: username}, {fields: {username: 1}});
+});
