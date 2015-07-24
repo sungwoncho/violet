@@ -1,3 +1,27 @@
+var postsPerPage = 5;
+
+Template.topic.onCreated(function () {
+  var self = this;
+
+  self.limit = new ReactiveVar(postsPerPage);
+
+  self.autorun(function () {
+    self.subscribe('posts', CurrentRoute.params.slug, self.limit.get());
+  });
+});
+
+Template.topic.onRendered(function () {
+  var self = this;
+
+  // Load more when page bottom is hit
+  $(window).scroll(function () {
+    if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+      var limit = self.limit.get();
+      self.limit.set(limit + postsPerPage);
+    }
+  });
+});
+
 Template.topic.onRendered(function () {
   this.$('.summernote').summernote({
     height: 200

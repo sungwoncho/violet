@@ -10,7 +10,7 @@ Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
 
   packages = [
-    'fourseven:scss@3.2.0', // needed? TOOD: Remove
+    'fourseven:scss@3.2.0',
     'wolves:bourbon@2.0.0',
     'wolves:neat@2.1.2'
   ];

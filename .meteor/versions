@@ -69,6 +69,7 @@ spacebars@1.0.6
 spacebars-compiler@1.0.6
 srp@1.0.3
 summernote:standalone@0.6.10
+sungwoncho:iron-utils@0.0.1
 templating@1.1.1
 tracker@1.0.7
 ui@1.0.6

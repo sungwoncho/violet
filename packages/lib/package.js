@@ -17,7 +17,8 @@ Package.onUse(function(api) {
     'aldeed:autoform@5.3.1',
     'ongoworks:speakingurl@5.0.1',
     'reactive-var@1.0.5',
-    'momentjs:moment@2.10.3'
+    'momentjs:moment@2.10.3',
+    'sungwoncho:iron-utils'
   ];
 
   api.use(packages);
