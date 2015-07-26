@@ -1,8 +1,7 @@
 Package.describe({
   name: 'violet:category',
-  version: '0.0.1',
-  summary: '',
-  git: '',
+  version: '0.1.0',
+  summary: 'everything related to categories',
   documentation: 'README.md'
 });
 

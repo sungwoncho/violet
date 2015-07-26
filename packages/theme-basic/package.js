@@ -1,8 +1,7 @@
 Package.describe({
   name: 'violet:theme-basic',
-  version: '0.0.1',
+  version: '0.1.0',
   summary: 'the default theme for Violet',
-  git: '',
   documentation: 'README.md'
 });
 

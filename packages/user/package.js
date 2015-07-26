@@ -1,8 +1,7 @@
 Package.describe({
   name: 'violet:user',
-  version: '0.0.1',
+  version: '0.1.0',
   summary: 'everything related to users',
-  git: '',
   documentation: 'README.md'
 });
 

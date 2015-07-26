@@ -1,1 +1,3 @@
-core package of Violet.
+# Core
+
+Core is the core package of the violet.

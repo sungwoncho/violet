@@ -1,8 +1,7 @@
 Package.describe({
   name: 'violet:core',
-  version: '0.0.1',
+  version: '0.1.0',
   summary: 'core package of violet',
-  git: '',
   documentation: 'README.md'
 });
 

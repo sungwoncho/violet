@@ -1,8 +1,7 @@
 Package.describe({
   name: 'violet:test-support',
-  version: '0.0.1',
+  version: '0.1.0',
   summary: 'libraries and helpers that are used to run tests',
-  git: '',
   documentation: 'README.md'
 });
 
