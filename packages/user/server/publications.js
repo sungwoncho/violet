@@ -7,5 +7,10 @@ Meteor.publish('userData', function () {
 });
 
 Meteor.publish('userProfile', function (username) {
-  return Meteor.users.find({username: username}, {fields: {username: 1}});
+  return Meteor.users.find({username: username}, {fields: {
+    username: 1,
+    'stats.topicCount': 1,
+    'stats.postCount': 1,
+    'stats.submissionCount': 1
+  }});
 });
