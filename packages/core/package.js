@@ -9,10 +9,10 @@ Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
 
   var packages = [
-    'violet:category',
-    'violet:topic',
-    'violet:post',
-    'violet:user'
+    'violet:category@0.1.0',
+    'violet:topic@0.1.0',
+    'violet:post@0.1.0',
+    'violet:user@0.1.0'
   ];
 
   api.use(packages);
