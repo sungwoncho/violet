@@ -8,11 +8,11 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
 
-  api.use('violet:lib');
+  api.use('violet:lib@0.1.0');
 
   // Depends on category
-  api.use('violet:category');
-  api.imply('violet:category');
+  api.use('violet:category@0.1.0');
+  api.imply('violet:category@0.1.0');
 
   api.addFiles([
     'both/collections/topics.js',

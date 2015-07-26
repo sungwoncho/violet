@@ -8,7 +8,7 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
 
-  api.use('violet:lib');
+  api.use('violet:lib@0.1.0');
 
   api.addFiles([
     'both/collections/categories.js',

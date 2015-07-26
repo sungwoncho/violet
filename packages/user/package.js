@@ -9,7 +9,7 @@ Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
 
   var packages = [
-    'violet:lib'
+    'violet:lib@0.1.0'
   ];
 
   api.use(packages);
