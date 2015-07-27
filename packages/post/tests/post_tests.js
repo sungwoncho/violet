@@ -25,24 +25,17 @@ describe("submitPost", function(){
   });
 
   it("increments the postCount for the topic", function(){
-    var topicId = Topics.insert({
-      title: 'testTitle',
-      categoryId: 'testCategoryId',
-      body: 'testBody',
-      author: 'testAuthor',
-      authorId: 'testAuthorId',
-      slug: 'test-title'
-    });
+    var topic = Factory.create('topic');
 
     post = {
       body: 'testBody',
-      topicId: topicId
+      topicId: topic._id
     };
 
-    Meteor.call('submitPost', post);
+    var ret = Meteor.call('submitPost', post);
 
-    var topic = Topics.findOne(topicId);
-    expect(topic.postCount).to.equal(1);
+    var topicReloaded = Topics.findOne(topic._id);
+    expect(topicReloaded.postCount).to.equal(1);
   });
 
   it("calls Meteor.users.incrementPostCount with the currentUser's id", function(){

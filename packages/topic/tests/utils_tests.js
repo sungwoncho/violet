@@ -7,7 +7,7 @@ describe("Topics", function(){
     });
 
     it("appends an incrementing number if duplicate slug exists", function(){
-      Topics.insert({title: 'test name', body: 'testBody', slug: 'test-name', categoryId: 'testCategoryId', author: 'testAuthor', authorId: 'testAuthorId'});
+      Factory.create('topic', {slug: 'test-name'});
       var topic = {title: 'test name'};
 
       expect(Topics.generateSlug(topic)).to.equal('test-name-1');

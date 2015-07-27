@@ -17,7 +17,7 @@ Package.onUse(function(api) {
   api.addFiles([
     'both/collections/topics.js',
     'both/routes.js',
-    'both/utils.js',
+    'both/utils.js'
   ], ['client', 'server']);
 
   api.addFiles([
@@ -30,10 +30,12 @@ Package.onUse(function(api) {
   ], 'client');
 
   api.addFiles([
-    'server/publications.js'
+    'server/publications.js',
+    'server/factory.js'
   ], 'server');
 
   api.export('Topics');
+  api.export('Factory');
 });
 
 Package.onTest(function(api) {
