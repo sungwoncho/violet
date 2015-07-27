@@ -25,10 +25,12 @@ Package.onUse(function(api) {
   ], 'client');
 
   api.addFiles([
-    'server/publications.js'
+    'server/publications.js',
+    'server/factory.js'
   ], 'server');
 
   api.export('Posts');
+  api.export('Factory');
 });
 
 Package.onTest(function (api) {
