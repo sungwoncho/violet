@@ -49,6 +49,7 @@ minimongo@1.0.8
 mobile-status-bar@1.0.3
 momentjs:moment@2.10.3
 mongo@1.1.0
+mquandalle:bower@1.4.1_1
 mrt:underscore-string-latest@2.3.3
 npm-bcrypt@0.7.8_2
 observe-sequence@1.0.6
@@ -84,5 +85,3 @@ violet:topic@0.1.0
 violet:user@0.1.0
 webapp@1.2.0
 webapp-hashing@1.0.3
-wolves:bourbon@2.0.0
-wolves:neat@2.1.2

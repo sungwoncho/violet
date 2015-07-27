@@ -7,7 +7,7 @@ This is the theme that Violet uses by default.
 * Bourbon (SCSS mixin library)
 * Neat (SCSS grid mixin)
 
-The dedendencies are configured in `client/scss.json`.
+The dedendencies are installed by bower during compilation.
 
 ## Design
 

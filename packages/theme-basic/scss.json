@@ -1,0 +1,6 @@
+{
+  "includePaths": [
+    "../../.meteor/local/bower/bourbon/app/assets/stylesheets",
+    "../../.meteor/local/bower/neat/app/assets/stylesheets"
+  ]
+}
