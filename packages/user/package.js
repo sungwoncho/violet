@@ -9,7 +9,8 @@ Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
 
   var packages = [
-    'violet:lib@0.1.0'
+    'violet:lib@0.1.0',
+    'jparker:gravatar@0.3.1'
   ];
 
   api.use(packages);
@@ -29,7 +30,8 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'server/publications.js',
-    'server/utils.js'
+    'server/utils.js',
+    'server/config.js'
   ], 'server');
 });
 

@@ -21,6 +21,10 @@ Schema.users = new SimpleSchema({
     type: Boolean,
     defaultValue: false
   },
+  emailHash: {
+    type: String,
+    optional: true
+  },
   stats: {
     type: Object
   },
