@@ -42,8 +42,8 @@ Meteor.methods({
     // increment the postCount only on the server side
     // don't update in a stub method because allowing update is a security hole
     if (! this.isSimluation) {
+      Topics.addParticipant(post.topicId, Meteor.userId());
       Topics.update(post.topicId, {$inc: {postCount: 1}});
-      Topics.update(post.topicId, {$set: {lastActivity: new Date()}});
       Meteor.users.incrementPostCount(Meteor.userId());
     }
 
