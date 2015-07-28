@@ -16,13 +16,27 @@ Topics.generateSlug = function (topic) {
   return possibleSlug;
 };
 
-Topics.addParticipant = function (topic, userId) {
+Topics.addParticipant = function (topicId, userId) {
   var today = new Date();
+  var topic = Topics.findOne(topicId);
+  var user = Meteor.users.findOne(userId);
+
+  if (! topic)
+    console.error('Topic is not found: ' + topicId);
+
   var participantsId = _.pluck(topic.participants, '_id');
 
   if (_.contains(participantsId, userId)) {
     Topics.update({_id: topic._id, 'participants._id': userId}, {$set: {'participants.$.lastPostAt': today}});
   } else {
-    Topics.update(topic._id, {$addToSet: {participants: {_id: userId, lastPostAt: today}}});
+    Topics.update(topic._id,
+      {$addToSet: {participants:
+        {
+          _id: userId,
+          username: user.username,
+          emailHash: user.emailHash,
+          lastPostAt: today
+        }
+      }});
   }
 };

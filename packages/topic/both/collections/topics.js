@@ -16,6 +16,21 @@ Schema.topics = new SimpleSchema({
   authorId: {
     type: String
   },
+  participants: {
+    type: [Object]
+  },
+  'participants.$._id': {
+    type: String
+  },
+  'participants.$.username': {
+    type: String
+  },
+  'participants.$.emailHash': {
+    type: String
+  },
+  'participants.$.lastPostAt': {
+    type: Date
+  },
   slug: {
     type: String,
     index: true,
@@ -44,7 +59,8 @@ Topics.simpleSchema().messages({
 
 Meteor.methods({
   submitTopic: function (topic) {
-    if (! Meteor.user()) return;
+    if (! Meteor.user())
+      throw new Error('currentUser not found.');
 
     var nonEmptyString = Match.Where(function (arg) {
       check(arg, String);
@@ -60,6 +76,12 @@ Meteor.methods({
     _.extend(topic, {
       author: Meteor.user().username,
       authorId: Meteor.userId(),
+      participants: [{
+        _id: Meteor.userId(),
+        username: Meteor.user().username,
+        emailHash: Meteor.user().emailHash,
+        lastPostAt: new Date()
+      }],
       slug: Topics.generateSlug(topic)
     });
 

@@ -1,4 +1,4 @@
-Meteor.publish('userData', function () {
+Meteor.publish('currentUser', function () {
   if (this.userId) {
     return Meteor.users.find({_id: this.userId}, {fields: {isAdmin: 1}});
   } else {
@@ -11,6 +11,7 @@ Meteor.publish('userProfile', function (username) {
     username: 1,
     'stats.topicCount': 1,
     'stats.postCount': 1,
-    'stats.submissionCount': 1
+    'stats.submissionCount': 1,
+    emailHash: 1
   }});
 });

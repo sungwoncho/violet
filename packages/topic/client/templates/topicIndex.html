@@ -12,7 +12,7 @@
     <thead>
       <tr>
         <th>Title</th>
-        <th>Author</th>
+        <th>Users</th>
         <th>Posts</th>
         <th>Active</th>
       </tr>
@@ -20,8 +20,14 @@
     <tbody>
       {{#each recentTopics}}
         <tr>
-          <td><a href="{{pathFor 'topic' data=this}}">{{title}}</a></td>
-          <td>{{author}}</td>
+          <td><a href="{{pathFor 'topic'}}">{{title}}</a></td>
+          <td>
+            {{#each participants}}
+              <a href="{{pathFor 'profile'}}">
+                {{> avatar user=this shape="circle" class="user-avatar"}}
+              </a>
+            {{/each}}
+          </td>
           <td>{{postCount}}</td>
           <td>{{timeFromNow lastActivity}}</td>
         </tr>

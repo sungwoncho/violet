@@ -7,3 +7,8 @@ Accounts.onCreateUser(function (options, user) {
 
   return user;
 });
+
+Avatar.setOptions({
+  gravatarDefault: 'identicon',
+  emailHashProperty: 'emailHash'
+});
