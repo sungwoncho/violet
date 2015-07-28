@@ -15,3 +15,14 @@ Topics.generateSlug = function (topic) {
 
   return possibleSlug;
 };
+
+Topics.addParticipant = function (topic, userId) {
+  var today = new Date();
+  var participantsId = _.pluck(topic.participants, '_id');
+
+  if (_.contains(participantsId, userId)) {
+    Topics.update({_id: topic._id, 'participants._id': userId}, {$set: {'participants.$.lastPostAt': today}});
+  } else {
+    Topics.update(topic._id, {$addToSet: {participants: {_id: userId, lastPostAt: today}}});
+  }
+};
