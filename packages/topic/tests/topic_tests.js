@@ -1,17 +1,15 @@
 describe("submitTopic", function(){
   // Setup
   beforeEach(function() {
-    sinon.stub(Meteor, 'userId', function () { return 1; });
-    sinon.stub(Meteor, 'user', function () { return {username: 'jon'}; });
-
+    var jonId = testHelpers.loginAsJon();
+    jon = Meteor.users.findOne(jonId);
   });
 
   // Teardown
   afterEach(function () {
     Categories.remove({});
     Topics.remove({});
-    Meteor.userId.restore();
-    Meteor.user.restore();
+    testHelpers.logout();
   });
 
   it("creates a topic", function(){
@@ -57,6 +55,6 @@ describe("submitTopic", function(){
 
     Meteor.call('submitTopic', topic);
 
-    expect(spy.calledWith(1)).to.equal(true);
+    expect(spy.calledWith(jon._id)).to.equal(true);
   });
 });

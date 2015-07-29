@@ -1,17 +1,15 @@
 describe("submitPost", function(){
   // Setup
   beforeEach(function () {
-    sinon.stub(Meteor, 'userId', function () { return 'jonUserId'; });
-    sinon.stub(Meteor, 'user', function () { return {username: 'jon'}; });
+    var jonId = testHelpers.loginAsJon();
+    jon = Meteor.users.findOne(jonId);
   });
 
   // Teardown
   afterEach(function () {
     Posts.remove({});
     Topics.remove({});
-
-    Meteor.userId.restore();
-    Meteor.user.restore();
+    testHelpers.logout();
   });
 
   it("creates a post", function(){
@@ -40,7 +38,7 @@ describe("submitPost", function(){
 
     Meteor.call('submitPost', post);
 
-    expect(spy.calledWith('jonUserId')).to.equal(true);
+    expect(spy.calledWith(jon._id)).to.equal(true);
   });
 
   it("adds the poster's _id to topic's participants", function(){
@@ -50,6 +48,6 @@ describe("submitPost", function(){
     Meteor.call('submitPost', post);
 
     var topicReloaded = Topics.findOne(topic._id);
-    expect(topicReloaded.participants[0]._id).to.equal('jonUserId');
+    expect(topicReloaded.participants[0]._id).to.equal(jon._id);
   });
 });

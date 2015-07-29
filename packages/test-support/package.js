@@ -10,7 +10,8 @@ Package.onUse(function(api) {
 
   var packages =[
     'mike:mocha-package@0.5.8',
-    'practicalmeteor:sinon@1.14.1_2'
+    'practicalmeteor:sinon@1.14.1_2',
+    'violet:user@0.1.0'
   ];
 
   api.use(packages);
@@ -21,4 +22,5 @@ Package.onUse(function(api) {
   ]);
 
   api.export('expect');
+  api.export('testHelpers');
 });
