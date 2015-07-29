@@ -36,18 +36,7 @@ Template.topicIndex.onRendered(function () {
 
 Template.topicIndex.helpers({
   recentTopics: function () {
-    var options = {
-      sort: {lastActivity: -1},
-      transform: function (topic) {
-        // Sort the participants in a descending order of lastPostAt
-        var recentParticipants = _.sortBy(topic.participants, 'lastPostAt').reverse().splice(0,4);
-
-        topic.participants = recentParticipants;
-        return topic;
-      }
-    };
-
-    return Topics.find({}, options);
+    return Topics.find({}, {sort: {lastActivity: -1}});
   },
   categories: function () {
     return Categories.find();

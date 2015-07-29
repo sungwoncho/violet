@@ -23,6 +23,8 @@ Package.onUse(function(api) {
   api.addFiles([
     'client/templates/topicIndex.html',
     'client/templates/topicIndex.js',
+    'client/templates/topicRow.html',
+    'client/templates/topicRow.js',
     'client/templates/topic.html',
     'client/templates/topic.js',
     'client/templates/newTopic.html',

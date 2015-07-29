@@ -1,0 +1,16 @@
+<template name="topicRow">
+  <tr>
+    <td><a href="{{pathFor 'topic'}}">{{title}}</a></td>
+    <td>
+      {{#each recentParticipants}}
+        <a href="{{pathFor 'profile'}}">
+          {{> avatar user=this shape="circle" class="user-avatar" size="small"}}
+        </a>
+      {{/each}}
+
+      and {{moreParticipantsCount}} more
+    </td>
+    <td>{{postCount}}</td>
+    <td>{{timeFromNow lastActivity}}</td>
+  </tr>
+</template>
