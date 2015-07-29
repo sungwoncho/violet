@@ -38,12 +38,13 @@ Template.topicIndex.helpers({
   recentTopics: function () {
     var options = {
       sort: {lastActivity: -1},
-      // transform: function (topic) {
-      //   var recentParticipants = _.sortBy(topic.participants, 'lastPostAt').splice(0,4);
-      //
-      //   topic.participants = recentParticipants;
-      //   return topic;
-      // }
+      transform: function (topic) {
+        // Sort the participants in a descending order of lastPostAt
+        var recentParticipants = _.sortBy(topic.participants, 'lastPostAt').reverse().splice(0,4);
+
+        topic.participants = recentParticipants;
+        return topic;
+      }
     };
 
     return Topics.find({}, options);
