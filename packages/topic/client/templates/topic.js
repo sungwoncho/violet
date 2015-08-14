@@ -52,7 +52,7 @@ Template.topic.events({
     var post = {
       body: postBody,
       topicId: this._id,
-      parentPostId: parentPostId || undefined
+      parentPostId: parentPostId
     };
 
     Meteor.call('submitPost', post);
@@ -61,5 +61,6 @@ Template.topic.events({
 
     $('.parent-poster').html('');
     $('.parent-post-body').html('');
+    $('.parent-post-id').val('');
   }
 });

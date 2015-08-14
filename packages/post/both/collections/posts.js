@@ -34,7 +34,7 @@ Meteor.methods({
     check(post, {
       body: String,
       topicId: String,
-      parentPostId: String
+      parentPostId: Match.Optional(String)
     });
 
     _.extend(post, {
