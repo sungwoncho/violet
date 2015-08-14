@@ -18,6 +18,10 @@ Schema.posts = new SimpleSchema({
     autoValue: function () {
       return new Date();
     }
+  },
+  parentPostId: {
+    type: String,
+    optional: true
   }
 });
 
@@ -29,7 +33,8 @@ Meteor.methods({
 
     check(post, {
       body: String,
-      topicId: String
+      topicId: String,
+      parentPostId: String
     });
 
     _.extend(post, {

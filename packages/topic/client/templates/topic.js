@@ -38,20 +38,28 @@ Template.topic.helpers({
   },
   category: function () {
     return Categories.findOne(this.categoryId);
+  },
+  isReplying: function () {
+    return Session.get('isReplying');
   }
 });
 
 Template.topic.events({
   'click .submit-post': function (e, tpl) {
     var postBody = $('.note-editable').html();
+    var parentPostId = $('.parent-post-id').val();
 
     var post = {
       body: postBody,
-      topicId: this._id
+      topicId: this._id,
+      parentPostId: parentPostId || undefined
     };
 
     Meteor.call('submitPost', post);
 
     $('.note-editable').html('');
+
+    $('.parent-poster').html('');
+    $('.parent-post-body').html('');
   }
 });
