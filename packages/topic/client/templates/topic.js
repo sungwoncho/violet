@@ -35,6 +35,9 @@ Template.topic.onDestroyed(function () {
 Template.topic.helpers({
   posts: function () {
     return Posts.find();
+  },
+  category: function () {
+    return Categories.findOne(this.categoryId);
   }
 });
 

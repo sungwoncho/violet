@@ -26,7 +26,9 @@ Router.route('/t/:slug', {
   },
   waitOn: function () {
     return [
-      Meteor.subscribe('topic', this.params.slug)
+      Meteor.subscribe('topic', this.params.slug),
+      //TODO: only subscribe to the category the topic belongs to
+      Meteor.subscribe('categories')
     ];
   }
 });

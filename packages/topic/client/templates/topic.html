@@ -11,8 +11,8 @@
     <div class="topic-footer">
       <ul>
         <li>Author: {{author}}</li>
-        <li>Category name</li>
-        <li>Posted at</li>
+        <li><a href="{{pathFor route='category.show' data=category }}">{{category.name}}</a></li>
+        <li>{{timeFromNow createdAt}}</li>
       </ul>
     </div>
   </article>

@@ -82,7 +82,7 @@ Meteor.methods({
         emailHash: Meteor.user().emailHash,
         lastPostAt: new Date()
       }],
-      slug: Topics.generateSlug(topic)
+      slug: Topics.generateSlug(topic),
     });
 
     var topicId = Topics.insert(topic);
