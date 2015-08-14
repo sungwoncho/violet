@@ -4,6 +4,14 @@
       {{author}} writes:
     </div>
 
+    {{#if parentPost}}
+      In reply to {{parentPost.author}}
+
+      <div>
+        {{{parentPost.body}}}
+      </div>
+    {{/if}}
+
     <p class="post-body">
       {{{body}}}
     </p>
@@ -11,6 +19,7 @@
     <div class="post-footer">
       <ul>
         <li>{{timeFromNow createdAt}}</li>
+        <li><a href="#" class="reply-btn">Reply</a></li>
       </ul>
     </div>
   </article>

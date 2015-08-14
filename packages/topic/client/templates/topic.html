@@ -27,7 +27,12 @@
 
   {{#if currentUser}}
     <h2>New Post</h2>
+
+    <div class="parent-poster"></div>
+    <div class="parent-post-body"></div>
+
     <div class="summernote"></div>
+    <input type="hidden" class="parent-post-id">
     <button class="submit-post">Post</button>
   {{/if}}
 </template>
