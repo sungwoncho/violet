@@ -5,6 +5,7 @@ Template.topicRow.helpers({
     return _.sortBy(this.participants, 'lastPostAt').reverse().splice(0, participantsDisplayed);
   },
   moreParticipantsCount: function () {
-    return this.participants.length - participantsDisplayed;
+    if (this.participants.length > participantsDisplayed)
+      return this.participants.length - participantsDisplayed;
   }
 });

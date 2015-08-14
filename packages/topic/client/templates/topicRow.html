@@ -8,7 +8,9 @@
         </a>
       {{/each}}
 
-      and {{moreParticipantsCount}} more
+      {{#if moreParticipantsCount}}
+        and {{moreParticipantsCount}} more
+      {{/if}}
     </td>
     <td>{{postCount}}</td>
     <td>{{timeFromNow lastActivity}}</td>
